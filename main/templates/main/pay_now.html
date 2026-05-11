@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    :root {
+        --quantum-navy: #020617;
+        --quantum-gold: #FFD700;
+    }
+
+    .pay-header {
+        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
+        padding: 60px 0;
+        text-align: center;
+        color: white;
+    }
+
+    .checkout-card {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        border: 1px solid #f1f5f9;
+        margin-top: -50px;
+    }
+
+    .form-control {
+        background-color: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        padding: 12px 16px;
+        border-radius: 12px;
+    }
+
+    .form-control:focus {
+        border-color: var(--quantum-gold) !important;
+        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1) !important;
+    }
+
+    .pay-btn {
+        background: var(--quantum-navy);
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .pay-btn:hover {
+        background: #0f172a;
+        transform: translateY(-2px);
+        color: var(--quantum-gold);
+    }
+
+    .security-badge {
+        font-size: 0.85rem;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+</style>
+
+<div class="pay-header">
+    <div class="container">
+        <h1 class="fw-bold">Secure <span class="text-secondary">Checkout</span></h1>
+        <p class="text-white-50">Finalize your project payment via our encrypted gateway.</p>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="checkout-card p-4 p-md-5">
+                <form action="{% url 'process_payment' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-4 text-center">
+                        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height: 25px;">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted text-uppercase">Payment Reference</label>
+                        <input type="text" name="reason" class="form-control" placeholder="e.g., Website Deposit - EWT" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-muted text-uppercase">Amount (USD)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0">$</span>
+                            <input type="number" name="amount" class="form-control border-start-0" placeholder="0.00" min="1" step="0.01" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="pay-btn w-100 mb-4">
+                        Proceed to Payment <i class="fas fa-lock ms-2"></i>
+                    </button>
+
+                    <div class="security-badge">
+                        <i class="fas fa-shield-check text-success"></i>
+                        SSL Encrypted & Secure PayPal Gateway
+                    </div>
+                </form>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="small text-muted">Need help? Contact <a href="mailto:info@quantumcoresoftware.com" class="text-primary text-decoration-none">Billing Support</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

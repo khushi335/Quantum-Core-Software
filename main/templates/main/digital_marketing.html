@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    :root {
+        --quantum-navy: #020617;
+        --quantum-gold: #FFD700;
+        --quantum-blue: #3b82f6;
+    }
+
+    .service-hero {
+        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
+        padding: 120px 0 80px;
+        color: white;
+    }
+
+    .tech-stack-badge {
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--quantum-gold);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .dev-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        transition: all 0.4s ease;
+        border: 1px solid #f1f5f9;
+        height: 100%;
+    }
+
+    .dev-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+        border-color: var(--quantum-blue);
+    }
+
+    .dev-icon {
+        width: 60px;
+        height: 60px;
+        background: #f8fafc;
+        color: var(--quantum-navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 45px;
+        margin-bottom: 30px;
+    }
+
+    .process-step::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: #e2e8f0;
+    }
+
+    .step-number {
+        position: absolute;
+        left: -15px;
+        top: 0;
+        width: 32px;
+        height: 32px;
+        background: var(--quantum-blue);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .cta-banner {
+        background: var(--quantum-navy);
+        border-radius: 30px;
+        padding: 60px;
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="service-hero">
+    <div class="container text-center">
+        <span class="tech-stack-badge text-uppercase mb-3 d-inline-block">Precision Growth</span>
+        <h1 class="display-3 fw-bold mb-4">Data-Driven <br><span class="text-primary">Performance Marketing</span></h1>
+        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 700px;">
+            We bridge the gap between code and customers. Our marketing engine uses advanced analytics and creative strategy to drive high-intent leads to your business.
+        </p>
+        <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold">Scale My Business</a>
+    </div>
+</section>
+
+<!-- Marketing Services Grid -->
+<section class="py-5 mt-n5">
+    <div class="container py-lg-5">
+        <div class="row g-4">
+            <!-- Paid Ads -->
+            <div class="col-lg-4">
+                <div class="dev-card">
+                    <div class="dev-icon"><i class="fas fa-ad"></i></div>
+                    <h3 class="fw-bold h4 mb-3">Paid Acquisition</h3>
+                    <p class="text-muted">High-ROI campaigns across Google Ads, Meta, and LinkedIn designed to capture demand and scale revenue rapidly.</p>
+                </div>
+            </div>
+            <!-- Conversion Rate Optimization -->
+            <div class="col-lg-4">
+                <div class="dev-card">
+                    <div class="dev-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="fw-bold h4 mb-3">CRO Engineering</h3>
+                    <p class="text-muted">We use heatmaps and A/B testing to turn your current traffic into a conversion machine, maximizing every click.</p>
+                </div>
+            </div>
+            <!-- Social Authority -->
+            <div class="col-lg-4">
+                <div class="dev-card">
+                    <div class="dev-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3 class="fw-bold h4 mb-3">Brand Authority</h3>
+                    <p class="text-muted">Strategic social media management and email automation that keeps your brand top-of-mind for your audience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marketing Strategy Section -->
+<section class="py-5 bg-light">
+    <div class="container py-lg-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-4 text-navy">The Quantum <span class="text-gold">Growth Funnel</span></h2>
+                <p class="text-muted mb-5">Marketing isn't just about "likes." It's about a systematic approach to customer acquisition that is measurable, repeatable, and scalable.</p>
+                
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h5 class="fw-bold">Omnichannel Audit</h5>
+                    <p class="small text-muted">We analyze your entire digital footprint to find where you are leaking revenue and identify untapped channels.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h5 class="fw-bold">Creative Deployment</h5>
+                    <p class="small text-muted">Developing high-impact copy and visuals that resonate with your target demographic's pain points.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h5 class="fw-bold">Continuous Optimization</h5>
+                    <p class="small text-muted">Real-time adjustments based on performance data to lower your Cost Per Acquisition (CPA) every month.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'images/digital-marketing-growth.png' %}" alt="Digital Marketing Strategy" class="img-fluid rounded-5 shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="py-5">
+    <div class="container">
+        <div class="cta-banner text-center text-white">
+            <h2 class="display-5 fw-bold mb-4">Ready to outsmart the competition?</h2>
+            <p class="text-white-50 mb-5" style="max-width: 600px; margin: 0 auto;">Our marketing strategies helped Mayday Appliance increase lead volume by 40%. Yours is next.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="{% url 'contact' %}" class="btn btn-secondary px-5 py-3 rounded-pill fw-bold">Request a Growth Proposal</a>
+                <a href="{% url 'pay_now' %}" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold">View Monthly Plans</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

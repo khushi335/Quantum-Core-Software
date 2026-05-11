@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* --- Contact Page Custom Styles --- */
+    :root {
+        --quantum-navy: #020617;
+        --quantum-gold: #FFD700;
+    }
+
+    .contact-header {
+        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
+        padding: 80px 0;
+        color: white;
+    }
+
+    .contact-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        overflow: hidden;
+    }
+
+    .info-sidebar {
+        background: var(--quantum-navy);
+        color: white;
+        padding: 3rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 3rem;
+    }
+
+    .form-control, .form-select {
+        background-color: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--quantum-gold) !important;
+        background-color: white !important;
+        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1) !important;
+    }
+
+    .map-wrapper {
+        height: 100%;
+        min-height: 300px;
+        filter: grayscale(100%) invert(90%);
+        transition: 0.5s ease;
+    }
+
+    .map-wrapper:hover {
+        filter: grayscale(0%) invert(0%);
+    }
+
+    .social-circle {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255,255,255,0.2);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .social-circle:hover {
+        background: var(--quantum-gold);
+        color: var(--quantum-navy);
+        border-color: var(--quantum-gold);
+    }
+
+    @media (max-width: 991px) {
+        .info-sidebar, .contact-form-wrapper {
+            padding: 2rem;
+        }
+    }
+</style>
+
+<!-- Hero Header -->
+<div class="contact-header text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">Let’s Engineer Your <span class="text-secondary">Success</span></h1>
+        <p class="lead text-white-50">Have a project in mind? Our team is ready to provide a custom scope and technical roadmap.</p>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-0 contact-card">
+            <!-- Sidebar Info -->
+            <div class="col-lg-5 info-sidebar d-flex flex-column justify-content-between">
+                <div>
+                    <h3 class="fw-bold mb-4">Contact Information</h3>
+                    
+                    <div class="mb-4 d-flex">
+                        <i class="fas fa-map-marker-alt text-secondary mt-1 me-3"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Phoenix Office</p>
+                            <p class="small text-white-50">4539 N 22ND ST STE R<br>PHOENIX, AZ 85016</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 d-flex">
+                        <i class="fas fa-phone-alt text-secondary mt-1 me-3"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Phone Support</p>
+                            <p class="small text-white-50">+1 602-842-3490</p>
+                            <p class="small text-white-50">+1 602 649-5748</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-5 d-flex">
+                        <i class="fas fa-envelope text-secondary mt-1 me-3"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Email Us</p>
+                            <p class="small text-white-50">info@quantumcoresoftware.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-auto">
+                    <p class="small text-white-50 mb-3">Follow our progress:</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/9779808974040" class="social-circle"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lead Form -->
+            <div class="col-lg-7 contact-form-wrapper bg-white">
+                <form id="contactPageForm" method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">First Name</label>
+                            <input type="text" name="first_name" class="form-control rounded-3" placeholder="First Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold text-muted">Last Name</label>
+                            <input type="text" name="last_name" class="form-control rounded-3" placeholder="Last Name" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label small fw-bold text-muted">Business Email</label>
+                            <input type="email" name="email" class="form-control rounded-3" placeholder="email@company.com" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label small fw-bold text-muted">What are you looking for?</label>
+                            <select name="service" class="form-select rounded-3">
+                                <option>Full-Stack Web Development</option>
+                                <option>AI & Machine Learning Solutions</option>
+                                <option>SEO & Digital Growth</option>
+                                <option>Custom CRM/Software Engineering</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label small fw-bold text-muted">Tell us about your project</label>
+                            <textarea name="message" class="form-control rounded-3" rows="5" placeholder="Include any specific goals or technical requirements..." required></textarea>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-pill shadow-sm">
+                                Send Inquiry <i class="fas fa-paper-plane ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="rounded-4 overflow-hidden shadow-sm" style="height: 400px;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.685324151639!2d-112.0381643!3d33.504245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0d660e588f07%3A0x6a0c0c0c0c0c0c0c!2s4539%20N%2022nd%20St%20STE%20R%2C%20Phoenix%2C%20AZ%2085016!5e0!3m2!1sen!2sus!4v1715350000000!5m2!1sen!2sus" 
+                        class="map-wrapper" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Badge / Support Text -->
+<div class="bg-light py-4 text-center">
+    <div class="container">
+        <p class="small text-muted mb-0">
+            <i class="fas fa-shield-alt text-secondary me-2"></i> 
+            All inquiries are protected by our standard Non-Disclosure Agreement (NDA). Your ideas remain yours.
+        </p>
+    </div>
+</div>
+
+{% endblock %}
