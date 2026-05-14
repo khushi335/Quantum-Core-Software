@@ -4,106 +4,203 @@
 {% block content %}
 <style>
     :root {
-        --quantum-navy: #020617;
-        --quantum-gold: #FFD700;
+        --q-navy: #020617;
+        --q-gold: #FFD700;
+        --q-blue: #3b82f6;
+        --q-border: rgba(255, 255, 255, 0.1);
     }
 
+    /* --- Hero: Deep & Reassuring --- */
     .pay-header {
-        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
-        padding: 60px 0;
+        background: radial-gradient(circle at top right, #0f172a, var(--q-navy));
+        padding: 100px 0 140px;
         text-align: center;
         color: white;
     }
 
+    .security-tag {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--q-gold);
+        background: rgba(255, 215, 0, 0.1);
+        padding: 5px 15px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+    }
+
+    /* --- The Checkout Card: Precision Engineered --- */
+    .checkout-wrapper {
+        margin-top: -100px;
+        position: relative;
+        z-index: 10;
+    }
+
     .checkout-card {
-        background: white;
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        border: 1px solid #f1f5f9;
-        margin-top: -50px;
+        background: #ffffff;
+        border-radius: 8px; /* Sharp agency look */
+        box-shadow: 0 40px 100px -20px rgba(2, 6, 23, 0.15);
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+    }
+
+    /* --- Form Elements --- */
+    .card-top-accent {
+        height: 4px;
+        background: linear-gradient(90deg, var(--q-blue), var(--q-gold));
+        width: 100%;
+    }
+
+    .q-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #64748b;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .q-input-container {
+        position: relative;
+        margin-bottom: 1.8rem;
     }
 
     .form-control {
         background-color: #f8fafc !important;
         border: 1px solid #e2e8f0 !important;
-        padding: 12px 16px;
-        border-radius: 12px;
+        padding: 16px 20px;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .form-control:focus {
-        border-color: var(--quantum-gold) !important;
-        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1) !important;
+        border-color: var(--q-navy) !important;
+        background-color: #fff !important;
+        box-shadow: 15px 15px 0px rgba(2, 6, 23, 0.02) !important;
+        transform: translate(-2px, -2px);
     }
 
-    .pay-btn {
-        background: var(--quantum-navy);
+    .input-group-text {
+        background-color: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        color: var(--q-navy);
+        font-weight: 700;
+        padding: 0 20px;
+    }
+
+    /* --- The Action Button --- */
+    .pay-btn-premium {
+        background: var(--q-navy);
         color: white;
         border: none;
-        padding: 15px;
-        border-radius: 12px;
-        font-weight: 700;
-        transition: 0.3s;
-    }
-
-    .pay-btn:hover {
-        background: #0f172a;
-        transform: translateY(-2px);
-        color: var(--quantum-gold);
-    }
-
-    .security-badge {
-        font-size: 0.85rem;
-        color: #64748b;
+        padding: 22px;
+        border-radius: 4px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: 0.4s;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        gap: 12px;
+    }
+
+    .pay-btn-premium:hover {
+        background: var(--q-blue);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+        color: white;
+    }
+
+    .pay-btn-premium i {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    /* --- Security & Trust --- */
+    .trust-footer {
+        background: #f8fafc;
+        padding: 25px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .paypal-logo {
+        height: 20px;
+        filter: grayscale(1) opacity(0.5);
+        transition: 0.3s;
+    }
+
+    .paypal-logo:hover {
+        filter: grayscale(0) opacity(1);
     }
 </style>
 
 <div class="pay-header">
     <div class="container">
-        <h1 class="fw-bold">Secure <span class="text-secondary">Checkout</span></h1>
-        <p class="text-white-50">Finalize your project payment via our encrypted gateway.</p>
+        <span class="security-tag">Encrypted Transaction</span>
+        <h1 class="display-4 fw-bold">Secure <span class="text-primary">Checkout</span></h1>
+        <p class="text-white-50 mx-auto" style="max-width: 500px;">Authorized payment gateway for Quantum Core Software engineering services.</p>
     </div>
 </div>
 
-<div class="container pb-5">
+<div class="container checkout-wrapper pb-5">
     <div class="row justify-content-center">
-        <div class="col-lg-5">
-            <div class="checkout-card p-4 p-md-5">
-                <form action="{% url 'process_payment' %}" method="POST">
-                    {% csrf_token %}
-                    <div class="mb-4 text-center">
-                        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" style="height: 25px;">
+        <div class="col-lg-6 col-xl-5">
+            <div class="checkout-card">
+                <div class="card-top-accent"></div>
+                
+                <div class="p-4 p-md-5">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                        <span class="small fw-bold text-muted text-uppercase">Payment Invoice</span>
+                        <span class="badge bg-light text-dark px-3 py-2 border">Step 01 of 01</span>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label small fw-bold text-muted text-uppercase">Payment Reference</label>
-                        <input type="text" name="reason" class="form-control" placeholder="e.g., Website Deposit - EWT" required>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label small fw-bold text-muted text-uppercase">Amount (USD)</label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0">$</span>
-                            <input type="number" name="amount" class="form-control border-start-0" placeholder="0.00" min="1" step="0.01" required>
+                    <form action="{% url 'process_payment' %}" method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="q-input-container">
+                            <label class="q-label">Project / Reference Name</label>
+                            <input type="text" name="reason" class="form-control" 
+                                   placeholder="e.g. Website Infrastructure - Q2" required>
+                            <div class="form-text small mt-2">Enter the project title or invoice number.</div>
                         </div>
-                    </div>
 
-                    <button type="submit" class="pay-btn w-100 mb-4">
-                        Proceed to Payment <i class="fas fa-lock ms-2"></i>
-                    </button>
+                        <div class="q-input-container mb-5">
+                            <label class="q-label">Transaction Amount (USD)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" name="amount" class="form-control" 
+                                       placeholder="0.00" min="1" step="0.01" required>
+                            </div>
+                        </div>
 
-                    <div class="security-badge">
-                        <i class="fas fa-shield-check text-success"></i>
-                        SSL Encrypted & Secure PayPal Gateway
+                        <button type="submit" class="pay-btn-premium">
+                            Authorize Transaction <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="trust-footer text-center">
+                    <div class="d-flex justify-content-center align-items-center gap-4 mb-3">
+                        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" 
+                             alt="PayPal" class="paypal-logo">
                     </div>
-                </form>
+                    <div class="text-muted small d-flex align-items-center justify-content-center gap-2">
+                        <i class="fas fa-shield-alt text-success"></i>
+                        AES-256 Bit Encryption | Secure Handshake
+                    </div>
+                </div>
             </div>
             
             <div class="text-center mt-4">
-                <p class="small text-muted">Need help? Contact <a href="mailto:info@quantumcoresoftware.com" class="text-primary text-decoration-none">Billing Support</a></p>
+                <p class="small text-muted">
+                    Payments are processed securely via PayPal. <br>
+                    Need assistance? <a href="mailto:info@quantumcoresoftware.com" class="text-navy fw-bold text-decoration-none">Contact Billing</a>
+                </p>
             </div>
         </div>
     </div>

@@ -4,191 +4,228 @@
 {% block content %}
 <style>
     :root {
-        --quantum-navy: #020617;
-        --quantum-gold: #FFD700;
-        --quantum-blue: #3b82f6;
+        --q-navy: #020617;
+        --q-gold: #FFD700;
+        --q-blue: #3b82f6;
+        --q-slate: #94a3b8;
+        --q-glass: rgba(255, 255, 255, 0.03);
     }
 
-    /* Hero Section */
+    /* --- Hero: High-Contrast & Technical --- */
     .service-hero {
-        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
-        padding: 120px 0 80px;
+        background: var(--q-navy);
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.03) 0px, transparent 50%);
+        padding: 180px 0 120px;
         color: white;
-        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .tech-stack-badge {
-        background: rgba(59, 130, 246, 0.1);
-        color: var(--quantum-blue);
-        padding: 8px 16px;
-        border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 1px;
+    .premium-badge {
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--q-gold);
+        padding: 6px 16px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        border-radius: 4px;
+        margin-bottom: 2rem;
     }
 
-    /* Feature Cards */
+    /* --- Single Line Heading Logic --- */
+    .h1-single-line {
+        white-space: nowrap;
+        letter-spacing: -2px;
+    }
+
+    @media (max-width: 991px) {
+        .h1-single-line { white-space: normal; letter-spacing: normal; }
+    }
+
+    /* --- Core Service Cards: Modern Glassmorphism --- */
     .dev-card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        transition: all 0.4s ease;
-        border: 1px solid #f1f5f9;
+        background: #ffffff;
+        border-radius: 4px; /* Sharper edges for a more professional feel */
+        padding: 50px 40px;
+        transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        border: 1px solid #eef2f6;
         height: 100%;
+        box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.05);
     }
 
     .dev-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-        border-color: var(--quantum-gold);
+        border-color: var(--q-gold);
+        box-shadow: 0 40px 60px -15px rgba(2, 6, 23, 0.1);
     }
 
     .dev-icon {
-        width: 60px;
-        height: 60px;
-        background: #f8fafc;
-        color: var(--quantum-navy);
+        width: 48px;
+        height: 48px;
+        color: var(--q-navy);
+        font-size: 1.5rem;
+        margin-bottom: 30px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        border-radius: 15px;
-        font-size: 1.5rem;
-        margin-bottom: 25px;
-        transition: 0.3s;
+        border-bottom: 2px solid var(--q-gold);
+        padding-bottom: 10px;
     }
 
-    .dev-card:hover .dev-icon {
-        background: var(--quantum-navy);
-        color: var(--quantum-gold);
+    /* --- Growth Framework: Minimalist Timeline --- */
+    .framework-container {
+        border-left: 1px solid #e2e8f0;
+        padding-left: 40px;
+        margin-left: 20px;
     }
 
-    /* Process Timeline */
     .process-step {
         position: relative;
-        padding-left: 45px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
-    .process-step::before {
-        content: '';
+    .step-dot {
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 2px;
-        height: 100%;
-        background: #e2e8f0;
-    }
-
-    .step-number {
-        position: absolute;
-        left: -15px;
-        top: 0;
-        width: 32px;
-        height: 32px;
-        background: var(--quantum-navy);
-        color: var(--quantum-gold);
+        left: -49px;
+        top: 5px;
+        width: 17px;
+        height: 17px;
+        background: white;
+        border: 4px solid var(--q-navy);
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 0.8rem;
     }
 
+    .step-tag {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        color: var(--q-blue);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    /* --- CTA: Bold & Clean --- */
     .cta-banner {
-        background: var(--quantum-navy);
-        border-radius: 30px;
-        padding: 60px;
-        overflow: hidden;
+        background: var(--q-navy);
+        padding: 100px 60px;
         position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .btn-premium-gold {
+        background: var(--q-gold);
+        color: var(--q-navy);
+        font-weight: 700;
+        padding: 16px 40px;
+        border-radius: 4px;
+        transition: 0.3s;
+        border: none;
+    }
+
+    .btn-premium-gold:hover {
+        background: white;
+        transform: scale(1.05);
     }
 </style>
 
 <!-- Hero Section -->
 <section class="service-hero">
     <div class="container text-center">
-        <span class="tech-stack-badge text-uppercase mb-3 d-inline-block">Search Visibility</span>
-        <h1 class="display-3 fw-bold mb-4">Dominant <br><span class="text-secondary">Search Engineering</span></h1>
-        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 700px;">
-            We don't just chase rankings; we engineer authority. Increase your organic traffic with data-driven SEO strategies that convert visitors into loyal customers.
+        <span class="premium-badge">Search Dominance</span>
+        <h1 class="display-3 fw-bold mb-4 h1-single-line">Dominant Search <span class="text-primary">Engineering</span></h1>
+        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 800px; line-height: 1.8;">
+            We don't just chase rankings; we engineer digital authority. Increase your organic traffic with data-driven SEO strategies built for high-performance scale.
         </p>
-        <a href="#contact" class="btn btn-secondary btn-lg px-5 py-3 rounded-pill fw-bold">Audit My Site</a>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-1 fw-bold">Initiate Site Audit</a>
+        </div>
     </div>
 </section>
 
-<!-- Core Services Grid -->
-<section class="py-5 mt-n5">
-    <div class="container py-lg-5">
+<!-- Core Services -->
+<section class="py-5" style="margin-top: -60px; position: relative; z-index: 10;">
+    <div class="container">
         <div class="row g-4">
-            <!-- Technical SEO -->
             <div class="col-lg-4">
                 <div class="dev-card">
-                    <div class="dev-icon"><i class="fas fa-microchip"></i></div>
-                    <h3 class="fw-bold h4 mb-3">Technical SEO</h3>
-                    <p class="text-muted">Optimizing Core Web Vitals, site architecture, and schema markup to ensure Google's crawlers index your site perfectly.</p>
+                    <div class="dev-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="fw-bold h5 mb-3 text-navy">Technical Architecture</h3>
+                    <p class="text-muted small">Optimizing Core Web Vitals and site structure for perfect crawlability and lightning-fast indexing.</p>
                 </div>
             </div>
-            <!-- Content Strategy -->
             <div class="col-lg-4">
                 <div class="dev-card">
-                    <div class="dev-icon"><i class="fas fa-pen-nib"></i></div>
-                    <h3 class="fw-bold h4 mb-3">Authority Content</h3>
-                    <p class="text-muted">Keyword research and semantic content optimization that positions your brand as a leader in your industry niche.</p>
+                    <div class="dev-icon"><i class="fas fa-fingerprint"></i></div>
+                    <h3 class="fw-bold h5 mb-3 text-navy">Semantic Authority</h3>
+                    <p class="text-muted small">Advanced keyword mapping and content clusters that establish your brand as the definitive industry niche leader.</p>
                 </div>
             </div>
-            <!-- Local & Global -->
             <div class="col-lg-4">
                 <div class="dev-card">
-                    <div class="dev-icon"><i class="fas fa-globe-americas"></i></div>
-                    <h3 class="fw-bold h4 mb-3">GEO-Targeting</h3>
-                    <p class="text-muted">Strategic local SEO for service businesses (like R2 Electrical) to dominate local map packs and regional searches.</p>
+                    <div class="dev-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3 class="fw-bold h5 mb-3 text-navy">Precision Geo-Targeting</h3>
+                    <p class="text-muted small">Specialized local SEO engineering to dominate regional search and local map packs efficiently.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Our Process Section -->
-<section class="py-5 bg-light">
+<!-- Framework Section -->
+<section class="py-100">
     <div class="container py-lg-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <h2 class="display-5 fw-bold mb-4 text-navy">Our Growth <span class="text-primary">Framework</span></h2>
-                <p class="text-muted mb-5">SEO is a marathon, not a sprint. We use a proprietary three-pillar approach to ensure your rankings are sustainable and resistant to algorithm updates.</p>
+                <h2 class="display-5 fw-bold mb-4 text-navy h1-single-line">The Growth <span class="text-primary">Framework</span></h2>
+                <p class="text-muted mb-5 lead">Our three-pillar approach ensures your rankings are sustainable, ethical, and resistant to algorithm shifts.</p>
                 
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h5 class="fw-bold">Audit & Competitor Intelligence</h5>
-                    <p class="small text-muted">We reverse-engineer what your competitors are doing right and identify the "low-hanging fruit" for immediate wins.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h5 class="fw-bold">On-Page Engineering</h5>
-                    <p class="small text-muted">Deep optimization of Meta tags, H1-H6 structures, image ALT text, and internal linking siloing.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h5 class="fw-bold">Link Equity Building</h5>
-                    <p class="small text-muted">Ethical, high-authority backlink acquisition to increase your Domain Authority (DA) and trust score.</p>
+                <div class="framework-container">
+                    <div class="process-step">
+                        <div class="step-dot"></div>
+                        <span class="step-tag">Phase 01</span>
+                        <h5 class="fw-bold mb-2">Competitor Intelligence</h5>
+                        <p class="text-muted small">Reverse-engineering competitor success and identifying high-intent "low-hanging fruit" for immediate growth.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-dot"></div>
+                        <span class="step-tag">Phase 02</span>
+                        <h5 class="fw-bold mb-2">On-Page Engineering</h5>
+                        <p class="text-muted small">Deep technical optimization of Meta tags, H-structures, and internal linking siloing.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-dot" style="border-color: var(--q-gold);"></div>
+                        <span class="step-tag">Phase 03</span>
+                        <h5 class="fw-bold mb-2">Link Equity Building</h5>
+                        <p class="text-muted small">Ethical, high-authority backlink acquisition to increase Domain Authority and global trust scores.</p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <!-- Replace with an appropriate SEO image -->
-                <img src="{% static 'images/seo-analytics.png' %}" alt="SEO Analytics Process" class="img-fluid rounded-5 shadow-lg">
+                <div class="ps-lg-5">
+                    <div class="position-relative">
+                        <div class="p-3 bg-white shadow-2xl rounded-3 border">
+                            <img src="{% static 'images/seo-analytics.png' %}" alt="SEO Engineering" class="img-fluid rounded-2">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action Banner -->
-<section class="py-5">
+<!-- Premium CTA -->
+<section class="py-5 mb-5">
     <div class="container">
         <div class="cta-banner text-center text-white">
-            <h2 class="display-5 fw-bold mb-4">Stop being invisible to your customers.</h2>
-            <p class="text-white-50 mb-5" style="max-width: 600px; margin: 0 auto;">Let Quantum Core scale your organic reach and outrank the competition with our engineering-first SEO approach.</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="{% url 'contact' %}" class="btn btn-secondary px-5 py-3 rounded-pill fw-bold">Get a Free SEO Audit</a>
-                <a href="{% url 'pay_now' %}" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold">View Packages</a>
+            <h2 class="display-5 fw-bold mb-4 h1-single-line">Stop Being Invisible.</h2>
+            <p class="text-white-50 mb-5 mx-auto" style="max-width: 650px;">Quantum Core scales your organic reach by treating SEO as an engineering problem, not a guessing game.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'contact' %}" class="btn btn-premium-gold px-5 py-3">Get A Technical Audit</a>
+                <a href="{% url 'pay_now' %}" class="btn btn-outline-light px-5 py-3 rounded-1 fw-bold">View Packages</a>
             </div>
         </div>
     </div>

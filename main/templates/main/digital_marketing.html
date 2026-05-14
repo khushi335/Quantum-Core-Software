@@ -7,128 +7,156 @@
         --quantum-navy: #020617;
         --quantum-gold: #FFD700;
         --quantum-blue: #3b82f6;
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.1);
     }
 
+    /* Hero Section with Mesh Gradient */
     .service-hero {
-        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
-        padding: 120px 0 80px;
+        background: var(--quantum-navy);
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.05) 0px, transparent 50%);
+        padding: 140px 0 100px;
         color: white;
+        position: relative;
     }
 
     .tech-stack-badge {
         background: rgba(255, 215, 0, 0.1);
         color: var(--quantum-gold);
-        padding: 8px 16px;
+        padding: 8px 20px;
         border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 1px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        border: 1px solid rgba(255, 215, 0, 0.2);
     }
 
+    /* Single Line Heading Constraint */
+    .single-line-h2 {
+        white-space: nowrap;
+    }
+
+    /* Refined Dev Cards */
     .dev-card {
         background: white;
-        border-radius: 20px;
-        padding: 40px;
-        transition: all 0.4s ease;
+        border-radius: 24px;
+        padding: 45px 40px;
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         border: 1px solid #f1f5f9;
         height: 100%;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
     }
 
     .dev-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-12px);
+        box-shadow: 0 30px 60px -12px rgba(2, 6, 23, 0.12);
         border-color: var(--quantum-blue);
     }
 
     .dev-icon {
-        width: 60px;
-        height: 60px;
-        background: #f8fafc;
-        color: var(--quantum-navy);
+        width: 64px; height: 64px;
+        background: #eff6ff;
+        color: var(--quantum-blue);
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 15px;
-        font-size: 1.5rem;
-        margin-bottom: 25px;
+        border-radius: 18px;
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+        transition: 0.3s;
     }
 
+    .dev-card:hover .dev-icon {
+        background: var(--quantum-blue);
+        color: white;
+        transform: rotate(-5deg);
+    }
+
+    /* Process Steps */
     .process-step {
         position: relative;
-        padding-left: 45px;
-        margin-bottom: 30px;
-    }
-
-    .process-step::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 2px;
-        height: 100%;
-        background: #e2e8f0;
+        padding-left: 60px;
+        margin-bottom: 40px;
     }
 
     .step-number {
         position: absolute;
-        left: -15px;
-        top: 0;
-        width: 32px;
-        height: 32px;
-        background: var(--quantum-blue);
-        color: white;
-        border-radius: 50%;
+        left: 0; top: 0;
+        width: 40px; height: 40px;
+        background: var(--quantum-navy);
+        color: var(--quantum-gold);
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
+        font-weight: 800;
+        font-size: 0.9rem;
+        border: 1px solid rgba(255, 215, 0, 0.3);
     }
 
+    /* CTA Banner */
     .cta-banner {
-        background: var(--quantum-navy);
-        border-radius: 30px;
-        padding: 60px;
+        background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+        border-radius: 40px;
+        padding: 80px 40px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-banner::after {
+        content: '';
+        position: absolute;
+        top: -50%; right: -10%;
+        width: 400px; height: 400px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    }
+
+    @media (max-width: 991px) {
+        .single-line-h2 { white-space: normal; }
+        .service-hero { padding: 100px 0 60px; }
     }
 </style>
 
 <!-- Hero Section -->
 <section class="service-hero">
     <div class="container text-center">
-        <span class="tech-stack-badge text-uppercase mb-3 d-inline-block">Precision Growth</span>
+        <span class="tech-stack-badge text-uppercase mb-4 d-inline-block">Precision Growth</span>
         <h1 class="display-3 fw-bold mb-4">Data-Driven <br><span class="text-primary">Performance Marketing</span></h1>
-        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 700px;">
-            We bridge the gap between code and customers. Our marketing engine uses advanced analytics and creative strategy to drive high-intent leads to your business.
+        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 750px; line-height: 1.8;">
+            We bridge the gap between high-level engineering and customer acquisition. Our engine uses advanced analytics to drive high-intent leads to your business.
         </p>
-        <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold">Scale My Business</a>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg">Scale My Business</a>
+        </div>
     </div>
 </section>
 
 <!-- Marketing Services Grid -->
-<section class="py-5 mt-n5">
-    <div class="container py-lg-5">
+<section class="py-5" style="margin-top: -60px; position: relative; z-index: 10;">
+    <div class="container">
         <div class="row g-4">
-            <!-- Paid Ads -->
             <div class="col-lg-4">
                 <div class="dev-card">
                     <div class="dev-icon"><i class="fas fa-ad"></i></div>
                     <h3 class="fw-bold h4 mb-3">Paid Acquisition</h3>
-                    <p class="text-muted">High-ROI campaigns across Google Ads, Meta, and LinkedIn designed to capture demand and scale revenue rapidly.</p>
+                    <p class="text-muted mb-0">High-ROI campaigns across Google Ads and Meta designed to capture demand and scale revenue rapidly.</p>
                 </div>
             </div>
-            <!-- Conversion Rate Optimization -->
             <div class="col-lg-4">
                 <div class="dev-card">
                     <div class="dev-icon"><i class="fas fa-chart-line"></i></div>
                     <h3 class="fw-bold h4 mb-3">CRO Engineering</h3>
-                    <p class="text-muted">We use heatmaps and A/B testing to turn your current traffic into a conversion machine, maximizing every click.</p>
+                    <p class="text-muted mb-0">We use heatmaps and A/B testing to turn your current traffic into a conversion machine, maximizing every click.</p>
                 </div>
             </div>
-            <!-- Social Authority -->
             <div class="col-lg-4">
                 <div class="dev-card">
                     <div class="dev-icon"><i class="fas fa-bullhorn"></i></div>
                     <h3 class="fw-bold h4 mb-3">Brand Authority</h3>
-                    <p class="text-muted">Strategic social media management and email automation that keeps your brand top-of-mind for your audience.</p>
+                    <p class="text-muted mb-0">Strategic social media management and email automation that keeps your brand top-of-mind for your audience.</p>
                 </div>
             </div>
         </div>
@@ -136,44 +164,50 @@
 </section>
 
 <!-- Marketing Strategy Section -->
-<section class="py-5 bg-light">
+<section class="py-100">
     <div class="container py-lg-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <h2 class="display-5 fw-bold mb-4 text-navy">The Quantum <span class="text-gold">Growth Funnel</span></h2>
-                <p class="text-muted mb-5">Marketing isn't just about "likes." It's about a systematic approach to customer acquisition that is measurable, repeatable, and scalable.</p>
+                <h2 class="display-5 fw-bold mb-4 text-navy single-line-h2">The Quantum <span class="text-primary">Growth Funnel</span></h2>
+                <p class="text-muted mb-5 lead">Marketing isn't just about "likes." It's about a systematic approach to customer acquisition that is measurable, repeatable, and scalable.</p>
                 
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h5 class="fw-bold">Omnichannel Audit</h5>
-                    <p class="small text-muted">We analyze your entire digital footprint to find where you are leaking revenue and identify untapped channels.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h5 class="fw-bold">Creative Deployment</h5>
-                    <p class="small text-muted">Developing high-impact copy and visuals that resonate with your target demographic's pain points.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h5 class="fw-bold">Continuous Optimization</h5>
-                    <p class="small text-muted">Real-time adjustments based on performance data to lower your Cost Per Acquisition (CPA) every month.</p>
+                <div class="process-wrapper">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h5 class="fw-bold mb-2">Omnichannel Audit</h5>
+                        <p class="text-muted">We analyze your entire digital footprint to find where you are leaking revenue and identify untapped channels.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h5 class="fw-bold mb-2">Creative Deployment</h5>
+                        <p class="text-muted">Developing high-impact copy and visuals that resonate with your target demographic's specific pain points.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h5 class="fw-bold mb-2">Continuous Optimization</h5>
+                        <p class="text-muted">Real-time adjustments based on performance data to lower your Cost Per Acquisition (CPA) every month.</p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="{% static 'images/digital-marketing-growth.png' %}" alt="Digital Marketing Strategy" class="img-fluid rounded-5 shadow-lg">
+                <div class="position-relative">
+                    <div class="p-2 bg-white rounded-5 shadow-2xl">
+                        <img src="{% static 'images/digital-marketing-growth.png' %}" alt="Digital Marketing Strategy" class="img-fluid rounded-4">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Call to Action Banner -->
-<section class="py-5">
+<section class="py-5 mb-5">
     <div class="container">
         <div class="cta-banner text-center text-white">
-            <h2 class="display-5 fw-bold mb-4">Ready to outsmart the competition?</h2>
-            <p class="text-white-50 mb-5" style="max-width: 600px; margin: 0 auto;">Our marketing strategies helped Mayday Appliance increase lead volume by 40%. Yours is next.</p>
+            <h2 class="display-5 fw-bold mb-4 single-line-h2">Ready to outsmart the competition?</h2>
+            <p class="text-white-50 mb-5 mx-auto" style="max-width: 600px;">Our marketing strategies helped Mayday Appliance increase lead volume by 40%. Yours is next.</p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="{% url 'contact' %}" class="btn btn-secondary px-5 py-3 rounded-pill fw-bold">Request a Growth Proposal</a>
+                <a href="{% url 'contact' %}" class="btn btn-secondary px-5 py-3 rounded-pill fw-bold text-warning">Request a Growth Proposal</a>
                 <a href="{% url 'pay_now' %}" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold">View Monthly Plans</a>
             </div>
         </div>

@@ -4,190 +4,228 @@
 {% block content %}
 <style>
     :root {
-        --quantum-navy: #020617;
-        --quantum-gold: #FFD700;
-        --quantum-blue: #3b82f6;
+        --q-navy: #020617;
+        --q-gold: #FFD700;
+        --q-blue: #3b82f6;
+        --q-slate: #94a3b8;
+        --q-border: rgba(255, 255, 255, 0.08);
     }
 
-    /* Hero Section */
+    /* --- Hero Section: High-End Technical Mesh --- */
     .service-hero {
-        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
-        padding: 120px 0 80px;
+        background: var(--q-navy);
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(255, 215, 0, 0.04) 0px, transparent 50%);
+        padding: 160px 0 120px;
         color: white;
-        position: relative;
+        border-bottom: 1px solid var(--q-border);
     }
 
-    .tech-stack-badge {
-        background: rgba(59, 130, 246, 0.1);
-        color: var(--quantum-blue);
-        padding: 8px 16px;
-        border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 1px;
+    .premium-badge {
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--q-gold);
+        padding: 6px 16px;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        border-radius: 4px;
+        margin-bottom: 2rem;
     }
 
-    /* Feature Cards */
+    /* --- Force Single Line Headings --- */
+    .h1-single-line {
+        white-space: nowrap;
+        letter-spacing: -1.5px;
+    }
+
+    @media (max-width: 991px) {
+        .h1-single-line { white-space: normal; letter-spacing: normal; }
+    }
+
+    /* --- Service Cards: Sharper, Cleaner, Professional --- */
     .dev-card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        transition: all 0.4s ease;
+        background: #ffffff;
+        border-radius: 4px; /* Sharp corners = More Professional/Serious */
+        padding: 50px 40px;
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         border: 1px solid #f1f5f9;
         height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .dev-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-        border-color: var(--quantum-gold);
+        transform: translateY(-8px);
+        border-color: var(--q-blue);
+        box-shadow: 0 40px 70px -15px rgba(2, 6, 23, 0.08);
     }
 
     .dev-icon {
-        width: 60px;
-        height: 60px;
-        background: #f8fafc;
-        color: var(--quantum-navy);
+        width: 44px;
+        height: 44px;
+        color: var(--q-blue);
+        font-size: 1.4rem;
+        margin-bottom: 30px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        border-radius: 15px;
-        font-size: 1.5rem;
-        margin-bottom: 25px;
-        transition: 0.3s;
+        border-bottom: 2px solid var(--q-gold);
+        padding-bottom: 10px;
     }
 
-    .dev-card:hover .dev-icon {
-        background: var(--quantum-navy);
-        color: var(--quantum-gold);
+    /* --- Growth Framework: Minimalist Engineering Path --- */
+    .framework-container {
+        border-left: 1px solid #e2e8f0;
+        padding-left: 40px;
+        margin-left: 20px;
     }
 
-    /* Process Timeline */
     .process-step {
         position: relative;
-        padding-left: 45px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
-    .process-step::before {
-        content: '';
+    .step-indicator {
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 2px;
-        height: 100%;
-        background: #e2e8f0;
-    }
-
-    .step-number {
-        position: absolute;
-        left: -15px;
-        top: 0;
-        width: 32px;
-        height: 32px;
-        background: var(--quantum-navy);
-        color: var(--quantum-gold);
+        left: -49px;
+        top: 6px;
+        width: 17px;
+        height: 17px;
+        background: white;
+        border: 4px solid var(--q-navy);
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 0.8rem;
     }
 
+    .step-tag {
+        font-weight: 800;
+        color: var(--q-blue);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    /* --- CTA Section: Cinematic Impact --- */
     .cta-banner {
-        background: var(--quantum-navy);
-        border-radius: 30px;
-        padding: 60px;
-        overflow: hidden;
+        background: var(--q-navy);
+        border-radius: 8px;
+        padding: 100px 60px;
         position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-premium {
+        background: var(--q-gold);
+        color: var(--q-navy);
+        font-weight: 800;
+        padding: 16px 40px;
+        border-radius: 4px;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+    .btn-premium:hover {
+        background: white;
+        transform: scale(1.05);
     }
 </style>
 
 <!-- Hero Section -->
 <section class="service-hero">
     <div class="container text-center">
-        <span class="tech-stack-badge text-uppercase mb-3 d-inline-block">Full-Stack Solutions</span>
-        <h1 class="display-3 fw-bold mb-4">Enterprise Grade <br><span class="text-secondary">Web Engineering</span></h1>
-        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 700px;">
-            We build scalable, secure, and high-performance web applications using modern frameworks like Django and Python, designed to grow with your business.
+        <span class="premium-badge">Full-Stack Architecture</span>
+        <h1 class="display-3 fw-bold mb-4 h1-single-line">Enterprise Grade <span class="text-primary">Web Engineering</span></h1>
+        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 800px; line-height: 1.8;">
+            We architect scalable, high-performance web ecosystems. From Django-powered backends to vibrant modern frontends, we engineer for long-term growth.
         </p>
-        <a href="#contact" class="btn btn-secondary btn-lg px-5 py-3 rounded-pill fw-bold">Start Your Project</a>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-1 fw-bold shadow-lg">Start Project Blueprint</a>
+        </div>
     </div>
 </section>
 
-<!-- Core Services Grid -->
-<section class="py-5 mt-n5">
-    <div class="container py-lg-5">
+<!-- Core Services -->
+<section class="py-5" style="margin-top: -60px; position: relative; z-index: 10;">
+    <div class="container">
         <div class="row g-4">
-            <!-- Web App Dev -->
             <div class="col-lg-4">
                 <div class="dev-card">
-                    <div class="dev-icon"><i class="fas fa-code"></i></div>
-                    <h3 class="fw-bold h4 mb-3">Custom Web Apps</h3>
-                    <p class="text-muted">From complex SaaS platforms to internal business tools, we engineer bespoke solutions that solve unique operational challenges.</p>
+                    <div class="dev-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="fw-bold h5 mb-3 text-navy">Custom Software</h3>
+                    <p class="text-muted small mb-0">Engineered SaaS platforms and internal business tools built on the stability of Python and Django.</p>
                 </div>
             </div>
-            <!-- E-Commerce -->
             <div class="col-lg-4">
                 <div class="dev-card">
-                    <div class="dev-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <h3 class="fw-bold h4 mb-3">E-Commerce Engines</h3>
-                    <p class="text-muted">High-conversion online stores with secure payment integration, inventory management, and automated workflows.</p>
+                    <div class="dev-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3 class="fw-bold h5 mb-3 text-navy">E-Commerce Engines</h3>
+                    <p class="text-muted small mb-0">High-conversion transaction engines with secure integration and automated inventory intelligence.</p>
                 </div>
             </div>
-            <!-- Backend/API -->
             <div class="col-lg-4">
                 <div class="dev-card">
-                    <div class="dev-icon"><i class="fas fa-server"></i></div>
-                    <h3 class="fw-bold h4 mb-3">API & Architecture</h3>
-                    <p class="text-muted">Robust backend infrastructure designed for speed. We build RESTful APIs that connect your mobile apps and web platforms seamlessly.</p>
+                    <div class="dev-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="fw-bold h5 mb-3 text-navy">API Infrastructure</h3>
+                    <p class="text-muted small mb-0">Robust RESTful architecture designed for seamless connectivity between mobile and web ecosystems.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Our Process Section -->
-<section class="py-5 bg-light">
+<!-- Engineering Philosophy -->
+<section class="py-100">
     <div class="container py-lg-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <h2 class="display-5 fw-bold mb-4 text-navy">Our Development <span class="text-primary">Philosophy</span></h2>
-                <p class="text-muted mb-5">At Quantum Core, we don't just write code. We architect experiences. Every project follows a rigorous engineering lifecycle to ensure zero-downtime deployment and long-term stability.</p>
+                <h2 class="display-5 fw-bold mb-4 text-navy h1-single-line">The Engineering <span class="text-primary">Philosophy</span></h2>
+                <p class="text-muted mb-5 lead">At Quantum Core, we move beyond simple coding to follow a rigorous software development lifecycle (SDLC).</p>
                 
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h5 class="fw-bold">Strategy & Discovery</h5>
-                    <p class="small text-muted">We analyze your business goals, user personas, and technical requirements before a single line of code is written.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h5 class="fw-bold">UI/UX Prototype</h5>
-                    <p class="small text-muted">Our designers create interactive, glassmorphism-inspired mockups to visualize the user journey.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h5 class="fw-bold">Agile Engineering</h5>
-                    <p class="small text-muted">Clean code development using Python/Django, ensuring your site is GEO-ready and SEO-optimized from day one.</p>
+                <div class="framework-container">
+                    <div class="process-step">
+                        <div class="step-indicator"></div>
+                        <span class="step-tag">Phase 01</span>
+                        <h5 class="fw-bold mb-2">Discovery & Logic</h5>
+                        <p class="text-muted small">Defining business logic and technical requirements before the first line of code is ever drafted.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-indicator"></div>
+                        <span class="step-tag">Phase 02</span>
+                        <h5 class="fw-bold mb-2">Interactive Prototyping</h5>
+                        <p class="text-muted small">Vibrant UI/UX designs featuring glassmorphism and modern layouts to visualize the user journey.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-indicator" style="border-color: var(--q-gold);"></div>
+                        <span class="step-tag">Phase 03</span>
+                        <h5 class="fw-bold mb-2">Agile Deployment</h5>
+                        <p class="text-muted small">Continuous integration and deployment (CI/CD) ensuring your platform is secure, fast, and SEO-ready.</p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="{% static 'images/web-dev-process.png' %}" alt="Web Engineering Process" class="img-fluid rounded-5 shadow-lg">
+                <div class="ps-lg-5">
+                    <div class="p-3 bg-white shadow-2xl rounded-2 border">
+                        <img src="{% static 'images/web-dev-process.png' %}" alt="Web Engineering" class="img-fluid rounded-1">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action Banner -->
-<section class="py-5">
+<!-- Premium CTA -->
+<section class="py-5 mb-5">
     <div class="container">
         <div class="cta-banner text-center text-white">
-            <h2 class="display-5 fw-bold mb-4">Ready to build the next big thing?</h2>
-            <p class="text-white-50 mb-5" style="max-width: 600px; margin: 0 auto;">Join clients like R2 Electrical and Mayday Appliance who trust Quantum Core for their mission-critical web presence.</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="{% url 'contact' %}" class="btn btn-secondary px-5 py-3 rounded-pill fw-bold">Book a Discovery Call</a>
-                <a href="{% url 'pay_now' %}" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold">Pay Deposit</a>
+            <h2 class="display-5 fw-bold mb-4 h1-single-line">Ready to engineer your future?</h2>
+            <p class="text-white-50 mb-5 mx-auto" style="max-width: 650px;">Join industry leaders who trust Quantum Core for mission-critical digital infrastructure.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'contact' %}" class="btn btn-premium px-5 py-3">Inquire for Discovery</a>
+                <a href="{% url 'pay_now' %}" class="btn btn-outline-light px-5 py-3 rounded-1 fw-bold">Project Deposit</a>
             </div>
         </div>
     </div>

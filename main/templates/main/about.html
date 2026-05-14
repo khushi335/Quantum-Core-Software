@@ -2,111 +2,516 @@
 {% load static %}
 
 {% block content %}
+
 <style>
-    /* --- About Page Specific Styles --- */
-    :root {
-        --quantum-navy: #020617;
-        --quantum-gold: #FFD700;
-        --quantum-slate: #1e293b;
-    }
+/* =========================================================
+   QUANTUM CORE — PREMIUM ABOUT PAGE 2026
+========================================================= */
 
-    .about-hero {
-        background: linear-gradient(135deg, var(--quantum-navy) 0%, #0f172a 100%);
-        padding: 100px 0;
-        position: relative;
-        overflow: hidden;
-    }
+:root{
+    --quantum-navy:#020617;
+    --quantum-dark:#0f172a;
+    --quantum-gold:#FFD700;
+    --quantum-blue:#2563eb;
+    --quantum-slate:#64748b;
+    --quantum-light:#f8fafc;
+    --white:#ffffff;
+}
 
-    .about-hero::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(to top right, #ffffff 50%, transparent 50.5%);
-    }
+/* =========================================================
+   GLOBAL
+========================================================= */
 
-    .stats-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        transition: transform 0.3s ease;
-    }
+body{
+    overflow-x:hidden;
+}
 
-    .stats-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--quantum-gold);
-    }
+.section-padding{
+    padding:90px 0;
+}
 
-    .value-icon {
-        width: 60px;
-        height: 60px;
-        background: var(--quantum-navy);
-        color: var(--quantum-gold);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
+.section-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 20px;
+    border-radius:100px;
+    background:rgba(255,215,0,0.08);
+    border:1px solid rgba(255,215,0,0.15);
+    color:var(--quantum-gold);
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
 
-    .image-stack {
-        position: relative;
-        height: 450px;
-    }
+.section-tag i{
+    font-size:7px;
+}
 
-    .image-stack-main {
-        width: 80%;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
+/* Optimized h2 to stay on one line without ellipses */
+.section-heading{
+    font-size: clamp(1.6rem, 3.8vw, 2.5rem); 
+    font-weight:800;
+    line-height: 1.2;
+    letter-spacing:-0.5px;
+    white-space: nowrap; 
+    overflow: visible; 
+    max-width: 100%;
+}
 
-    .image-stack-sub {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 50%;
-        border: 8px solid #fff;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
+.gradient-text{
+    background:linear-gradient(90deg,var(--quantum-gold),#ffef99);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-    .section-title-tag {
-        color: var(--quantum-gold);
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-    }
+.text-navy{
+    color:var(--quantum-navy);
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 991px) {
-        .image-stack { height: auto; margin-top: 50px; }
-        .about-hero { padding: 60px 0 100px; }
-    }
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.about-hero{
+    position:relative;
+    padding:130px 0 120px;
+    background:
+    radial-gradient(circle at top left, rgba(255,215,0,0.12), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(37,99,235,0.10), transparent 25%),
+    linear-gradient(135deg, #020617 0%, #0f172a 60%, #111827 100%);
+    overflow:hidden;
+}
+
+.about-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:50px 50px;
+    opacity:.4;
+}
+
+.hero-glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+}
+
+.hero-glow-1{
+    width:320px;
+    height:320px;
+    background:rgba(255,215,0,0.15);
+    top:-100px;
+    left:-80px;
+}
+
+.hero-glow-2{
+    width:350px;
+    height:350px;
+    background:rgba(37,99,235,0.12);
+    right:-120px;
+    bottom:-120px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+}
+
+.hero-text{
+    color:rgba(255,255,255,0.72);
+    font-size:1.1rem;
+    line-height:1.9;
+    max-width:650px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-quantum{
+    padding:16px 34px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:.95rem;
+    transition:all .35s ease;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+.btn-gold{
+    background:var(--quantum-gold);
+    color:var(--quantum-navy);
+}
+
+.btn-gold:hover{
+    transform:translateY(-4px);
+    box-shadow: 0 15px 40px rgba(255,215,0,0.25);
+    color:var(--quantum-navy);
+}
+
+.btn-outline-light-modern{
+    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(12px);
+    color:white;
+}
+
+.btn-outline-light-modern:hover{
+    background:white;
+    color:var(--quantum-navy);
+    transform:translateY(-4px);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-wrapper{
+    margin-top:45px;
+}
+
+.stats-card{
+    padding:26px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:all .35s ease;
+}
+
+.stats-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,215,0,0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.stats-card h3{
+    font-size:2rem;
+    font-weight:800;
+    color:var(--quantum-gold);
+}
+
+.stats-card p{
+    margin:0;
+    color:rgba(255,255,255,0.65);
+}
+
+/* =========================================================
+   FLOATING TECH PANEL
+========================================================= */
+
+.hero-tech-card{
+    position:relative;
+    padding:35px;
+    border-radius:36px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,0.08);
+    z-index:5;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+}
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.tech-box{
+    padding:22px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.06);
+    text-align:center;
+    transition:.3s ease;
+}
+
+.tech-box:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,215,0,0.2);
+}
+
+.tech-box i{
+    font-size:2rem;
+    margin-bottom:14px;
+}
+
+.tech-box h6{
+    color:white;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.tech-box p{
+    margin:0;
+    color:rgba(255,255,255,0.6);
+    font-size:.9rem;
+}
+
+/* =========================================================
+   MISSION SECTION
+========================================================= */
+
+.mission-section{
+    position:relative;
+    background:white;
+}
+
+.image-stack{
+    position:relative;
+    padding-bottom:50px;
+}
+
+.image-stack-main{
+    width:85%;
+    border-radius:32px;
+    box-shadow: 0 30px 70px rgba(15,23,42,0.15);
+}
+
+.image-stack-sub{
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:50%;
+    border:10px solid white;
+    border-radius:28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.mission-card{
+    margin-top:30px;
+    padding:24px;
+    border-radius:24px;
+    background:var(--quantum-light);
+    border:1px solid rgba(2,6,23,0.05);
+    transition:.3s ease;
+}
+
+.mission-card:hover{
+    transform:translateY(-5px);
+}
+
+.mission-icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--quantum-navy),#1e293b);
+    color:var(--quantum-gold);
+    font-size:1.3rem;
+}
+
+/* =========================================================
+   VALUES SECTION
+========================================================= */
+
+.values-section{
+    background: linear-gradient(to bottom,#f8fafc,#ffffff);
+}
+
+.value-card{
+    position:relative;
+    padding:40px 30px;
+    border-radius:32px;
+    background:white;
+    border:1px solid rgba(2,6,23,0.06);
+    transition:all .35s ease;
+    overflow:hidden;
+    height:100%;
+}
+
+.value-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,var(--quantum-gold),#ffe66d);
+}
+
+.value-card:hover{
+    transform:translateY(-10px);
+    box-shadow: 0 30px 70px rgba(15,23,42,0.08);
+}
+
+.value-icon{
+    width:75px;
+    height:75px;
+    border-radius:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--quantum-navy),#1e293b);
+    color:var(--quantum-gold);
+    font-size:1.8rem;
+    margin-bottom:24px;
+    box-shadow: 0 15px 35px rgba(2,6,23,0.15);
+}
+
+.value-card h4{
+    font-weight:800;
+    color:var(--quantum-navy);
+    margin-bottom:16px;
+}
+
+.value-card p{
+    color:var(--quantum-slate);
+    line-height:1.8;
+}
+
+/* =========================================================
+   CTA SECTION
+========================================================= */
+
+.cta-section{
+    position:relative;
+    overflow:hidden;
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    padding:100px 0;
+}
+
+.cta-box{
+    position:relative;
+    z-index:5;
+    padding:70px 50px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    text-align:center;
+}
+
+.cta-box h2{
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem); 
+    font-weight:800;
+    margin-bottom:20px;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.cta-box p{
+    color:rgba(255,255,255,0.7);
+    font-size:1.1rem;
+    margin-bottom:35px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:991px){
+    .section-heading, .cta-box h2 { white-space: normal; } 
+    .section-padding{ padding:70px 0; }
+    .about-hero{ padding:100px 0 80px; text-align:center; }
+    .hero-text{ margin:auto; }
+    .hero-buttons{ justify-content:center; }
+    .hero-tech-card{ margin-top:50px; }
+    .image-stack{ margin-bottom:50px; }
+    .cta-box{ padding:50px 30px; }
+}
+
+@media(max-width:767px){
+    .section-heading{ font-size:2.2rem; }
+    .hero-tech-card{ padding:25px; }
+    .tech-grid{ gap:14px; }
+    .tech-box{ padding:18px; }
+    .stats-card{ padding:20px; }
+    .value-card{ padding:32px 24px; }
+    .cta-section{ padding:70px 0; }
+}
+
+@media(max-width:576px){
+    .section-padding{ padding:55px 0; }
+    .about-hero{ padding:85px 0 70px; }
+    .section-heading{ font-size:1.8rem; }
+    .btn-quantum{ width:100%; justify-content:center; }
+    .image-stack-main{ width:100%; }
+    .image-stack-sub{ width:55%; }
+    .cta-box{ border-radius:28px; padding:40px 22px; }
+}
 </style>
 
-<!-- Hero Section -->
+<!-- HERO SECTION -->
 <section class="about-hero text-white">
-    <div class="container">
-        <div class="row align-items-center">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="container position-relative z-2">
+        <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <h1 class="display-3 fw-bold mb-4">Architecting the <span class="text-secondary">Future</span> of Intelligence.</h1>
-                <p class="lead text-white-50 mb-5">At Quantum Core Software, we don't just build websites; we engineer high-performance digital ecosystems that empower businesses to scale through AI and precision code.</p>
-                
-                <div class="row g-3">
-                    <div class="col-6 col-md-4">
-                        <div class="stats-card p-3 rounded-3 text-center">
-                            <h3 class="fw-bold mb-0 text-secondary">99%</h3>
-                            <small class="text-white-50">Client Success</small>
+                <div class="hero-content">
+                    <span class="section-tag mb-4">
+                        <i class="fas fa-circle"></i> ABOUT QUANTUM CORE
+                    </span>
+                    <h1 class="section-heading mb-4">
+                        Building <span class="gradient-text">The Future of Web</span>
+                    </h1>
+                    <p class="hero-text mb-5">
+                        Developing high-performance digital ecosystems powered by AI, scalable backends, and precision user experiences.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="{% url 'contact' %}" class="btn-quantum btn-gold">
+                            Start Your Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#mission" class="btn-quantum btn-outline-light-modern">
+                            Explore More
+                        </a>
+                    </div>
+                    <div class="stats-wrapper">
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="stats-card text-center">
+                                    <h3>99%</h3>
+                                    <p>Satisfaction Rate</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stats-card text-center">
+                                    <h3>50+</h3>
+                                    <p>Live Projects</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4">
-                        <div class="stats-card p-3 rounded-3 text-center">
-                            <h3 class="fw-bold mb-0 text-secondary">50+</h3>
-                            <small class="text-white-50">Global Projects</small>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-tech-card">
+                    <div class="tech-grid">
+                        <div class="tech-box">
+                            <i class="fab fa-python text-info"></i>
+                            <h6>Python</h6>
+                            <p>Backend Systems</p>
+                        </div>
+                        <div class="tech-box">
+                            <i class="fab fa-js text-warning"></i>
+                            <h6>JavaScript</h6>
+                            <p>Interactive UI</p>
+                        </div>
+                        <div class="tech-box">
+                            <i class="fab fa-aws text-warning"></i>
+                            <h6>AWS Cloud</h6>
+                            <p>Scalable Hosting</p>
+                        </div>
+                        <div class="tech-box">
+                            <i class="fas fa-brain text-primary"></i>
+                            <h6>AI Systems</h6>
+                            <p>Smart Automation</p>
                         </div>
                     </div>
                 </div>
@@ -115,34 +520,36 @@
     </div>
 </section>
 
-<!-- Mission Section -->
-<section class="py-5 bg-white">
-    <div class="container py-lg-5">
+<!-- MISSION SECTION -->
+<section id="mission" class="mission-section section-padding">
+    <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
                 <div class="image-stack">
-                    <!-- Replace 'about-team.jpg' and 'about-office.jpg' with your actual static images -->
-                    <img src="{% static 'images/about-main.jpg' %}" alt="Quantum Core Engineering" class="image-stack-main">
-                    <img src="{% static 'images/about-sub.jpg' %}" alt="Our Strategy" class="image-stack-sub">
+                    <img src="{% static 'images/about-main.jpg' %}" class="image-stack-main" alt="Quantum Core">
+                    <img src="{% static 'images/about-sub.jpg' %}" class="image-stack-sub" alt="Technology">
                 </div>
             </div>
             <div class="col-lg-6">
-                <span class="section-title-tag">Our Mission</span>
-                <h2 class="display-5 fw-bold text-navy mt-2 mb-4">Bridging the Gap Between Code and Commerce.</h2>
-                <p class="text-muted mb-4">Founded in Phoenix, AZ, Quantum Core Software emerged from a simple realization: modern businesses are often held back by fragmented technology. We provide the "Core"—the central, high-performance engine that drives SEO, User Experience, and Backend Automation.</p>
-                
-                <div class="d-flex align-items-start mb-4">
-                    <div class="me-3"><i class="fas fa-check-circle text-primary fa-lg"></i></div>
+                <span class="section-tag mb-4">
+                    <i class="fas fa-circle"></i> OUR MISSION
+                </span>
+                <h2 class="section-heading text-navy mb-4">Bridging Code and Commerce</h2>
+                <p class="text-muted mb-5" style="line-height:1.9;font-size:1.05rem;">
+                    We help companies transform with scalable architecture and AI workflows that accelerate business growth.
+                </p>
+                <div class="mission-card d-flex gap-4">
+                    <div class="mission-icon"><i class="fas fa-code"></i></div>
                     <div>
-                        <h5 class="fw-bold">Full-Stack Mastery</h5>
-                        <p class="small text-muted">Specializing in Django, Python, and advanced Frontend architectures.</p>
+                        <h5 class="fw-bold mb-2">Full Stack Expertise</h5>
+                        <p class="text-muted mb-0">Django, AI integrations, and advanced cloud systems.</p>
                     </div>
                 </div>
-                <div class="d-flex align-items-start">
-                    <div class="me-3"><i class="fas fa-check-circle text-primary fa-lg"></i></div>
+                <div class="mission-card d-flex gap-4">
+                    <div class="mission-icon"><i class="fas fa-chart-line"></i></div>
                     <div>
-                        <h5 class="fw-bold">Data-Driven Growth</h5>
-                        <p class="small text-muted">Every line of code is optimized for SEO rankings and user conversion.</p>
+                        <h5 class="fw-bold mb-2">Data Driven Growth</h5>
+                        <p class="text-muted mb-0">Engineered for visibility, speed, and conversion results.</p>
                     </div>
                 </div>
             </div>
@@ -150,49 +557,51 @@
     </div>
 </section>
 
-<!-- Values Section -->
-<section class="py-5 bg-light">
-    <div class="container py-lg-5">
+<!-- VALUES SECTION -->
+<section class="values-section section-padding">
+    <div class="container">
         <div class="text-center mb-5">
-            <span class="section-title-tag">Our Culture</span>
-            <h2 class="display-6 fw-bold">The Pillars of Quantum Engineering</h2>
+            <span class="section-tag mb-4">
+                <i class="fas fa-circle"></i> OUR VALUES
+            </span>
+            <h2 class="section-heading text-navy">The Pillars of Quantum Engineering</h2>
         </div>
-        
         <div class="row g-4">
-            <!-- Value 1 -->
-            <div class="col-md-4">
-                <div class="bg-white p-4 rounded-4 shadow-sm h-100 border-bottom border-primary border-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="value-card">
                     <div class="value-icon"><i class="fas fa-microchip"></i></div>
-                    <h4 class="fw-bold">Innovation First</h4>
-                    <p class="text-muted">We don't follow trends; we set them by integrating AI and Machine Learning into everyday business workflows.</p>
+                    <h4>Innovation First</h4>
+                    <p>We integrate modern AI into scalable systems that future-proof your business operations.</p>
                 </div>
             </div>
-            <!-- Value 2 -->
-            <div class="col-md-4">
-                <div class="bg-white p-4 rounded-4 shadow-sm h-100 border-bottom border-secondary border-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="value-card">
                     <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h4 class="fw-bold">Radical Integrity</h4>
-                    <p class="text-muted">Transparent communication, realistic timelines, and code that is built to last, not just to ship.</p>
+                    <h4>Radical Integrity</h4>
+                    <p>Transparent communication and clean architecture built into every single system.</p>
                 </div>
             </div>
-            <!-- Value 3 -->
-            <div class="col-md-4">
-                <div class="bg-white p-4 rounded-4 shadow-sm h-100 border-bottom border-primary border-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="value-card">
                     <div class="value-icon"><i class="fas fa-rocket"></i></div>
-                    <h4 class="fw-bold">Velocity & Scale</h4>
-                    <p class="text-muted">Our systems are designed to handle growth from 100 users to 1,000,000 without missing a beat.</p>
+                    <h4>Velocity & Scale</h4>
+                    <p>Cloud-ready platforms that scale seamlessly from startups to enterprise levels.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action -->
-<section class="py-5 bg-primary text-white text-center">
-    <div class="container py-4">
-        <h2 class="display-6 fw-bold mb-4">Ready to Build the Extraordinary?</h2>
-        <p class="text-white-50 mb-5">Let's discuss how Quantum Core can accelerate your digital roadmap.</p>
-        <a href="{% url 'contact' %}" class="btn btn-secondary text-primary px-5 py-3 fw-bold rounded-pill">Start Your Project</a>
+<!-- CTA SECTION -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <h2 class="text-white">Build Something Extraordinary</h2>
+            <p>Let's create scalable digital systems that elevate your brand and business today.</p>
+            <a href="{% url 'contact' %}" class="btn-quantum btn-gold">
+                Start Your Project <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </div>
 </section>
 

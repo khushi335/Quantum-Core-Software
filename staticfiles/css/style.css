@@ -1,0 +1,2207 @@
+:root {
+    --primary: #0a192f;      /* Midnight Navy */
+    --secondary: #FFBF00;    
+    --accent: #112240;       
+    --light: #f7f9fb;
+    --dark: #020617;
+    --blue: #1034A6;
+    /*--bluee: #0047AB;*/
+    --bluee: #324AB2;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+    background-color: var(--light);
+}
+
+h1, h2, h3, h4, .navbar-brand, .btn-bronze {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Navbar Core --- */
+.navbar {
+    background-color: var(--bluee) !important;
+    padding: 0 !important; /* Removes vertical space so logo touches edges */
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    min-height: 80px; /* Adjust this to your desired navbar height */
+}
+
+/* --- Logo: Top & Bottom Touch --- */
+.navbar-brand {
+    height: 95px; /* Must match navbar min-height */
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.navbar-logo {
+    height: 100%; /* Forces logo to fill the 80px height */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    /* If your logo has internal white space, ensure the image file is cropped tightly */
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.02);
+}
+
+/* --- Navigation Links --- */
+.navbar-nav .nav-link {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 1.5rem 1.2rem !important; /* Increased padding to center text vertically with the tall logo */
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: var(--secondary) !important;
+}
+
+/* --- Premium CTA Button --- */
+.btn-pay-premium {
+    background: linear-gradient(135deg, #FFD700 0%, #FFBF00 100%);
+    color: var(--primary) !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    border: none;
+}
+
+/* --- Mobile Logic --- */
+@media (max-width: 991.98px) {
+    .navbar {
+        min-height: 60px; /* Shorter navbar on mobile */
+    }
+    .navbar-brand {
+        height: 60px;
+    }
+    .navbar-nav {
+        background-color: var(--primary);
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+    .navbar-nav .nav-link {
+        padding: 1rem !important;
+    }
+}
+
+
+
+
+
+
+
+/*** --- Carousel Container & Items --- ***/
+.carousel-item {
+    height: 85vh;
+    min-height: 600px;
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background mesh gradient effect */
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--secondary);
+    filter: blur(150px);
+    opacity: 0.12;
+    top: -50px;
+    left: -50px;
+    z-index: 1;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) grayscale(0.3); 
+    transition: transform 8s ease; /* Slow cinematic zoom */
+}
+
+/* Ken Burns Effect on active slide */
+.carousel-item.active img {
+    transform: scale(1.15);
+}
+
+/*** --- Caption & Glassmorphism Card --- ***/
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    z-index: 10;
+}
+
+.carousel-content {
+    background: var(--surface);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 242, 255, 0.15);
+    padding: 4rem 3rem;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.carousel-content h1 {
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    color: var(--text-main);
+}
+
+.carousel-content p {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/*** --- Buttons & UI Elements --- ***/
+.btn-cyan {
+    background: var(--secondary);
+    color: #000;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+.btn-cyan:hover {
+    background: #111;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
+}
+
+.btn-outline-custom {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    background: rgba(0, 242, 255, 0.05);
+}
+
+/*** --- Navigation Indicators & Controls --- ***/
+.carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background-color: var(--secondary) !important;
+    margin: 0 8px !important;
+    border: none !important;
+    opacity: 0.4;
+    transition: 0.3s all ease;
+}
+
+.carousel-indicators .active {
+    width: 35px !important;
+    border-radius: 10px !important;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: var(--secondary) !important;
+}
+
+/*** --- Responsive Design (The All-Device Fixes) --- ***/
+
+/* Tablets & Small Laptops */
+@media (max-width: 992px) {
+    .carousel-item { height: 75vh; }
+    .carousel-content { padding: 3rem 2rem; }
+    .carousel-content h1 { font-size: 3rem; }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .carousel-item { 
+        height: 85vh; 
+        min-height: 550px; 
+    }
+    .carousel-content { 
+        padding: 2.5rem 1.5rem; 
+        border-radius: 20px; 
+        background: rgba(15, 23, 42, 0.85); /* Darker for readability */
+        border: none;
+    }
+    .carousel-content h1 { font-size: 2.2rem; }
+    .carousel-content p { font-size: 1rem !important; }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .carousel-content h1 { font-size: 1.8rem; letter-spacing: -1px; }
+    .d-flex { gap: 10px !important; }
+    .btn-cyan, .btn-outline-custom { 
+        padding: 12px 15px !important; 
+        font-size: 14px;
+        width: 100%; /* Stack buttons on very small screens */
+    }
+    .carousel-content .d-flex {
+        flex-direction: column;
+    }
+}
+
+/* Landscape Mode Fix */
+@media (max-height: 500px) and (orientation: landscape) {
+    .carousel-item { height: 100vh; min-height: 350px; }
+    .carousel-content { padding: 1rem; }
+    .carousel-content h1 { font-size: 1.5rem; margin-bottom: 10px !important; }
+    .carousel-content p { display: none; }
+}
+
+
+
+
+
+
+
+/* =========================================================
+   COMPACT ABOUT SECTION
+========================================================= */
+
+.about-section{
+    position:relative;
+    overflow:hidden;
+
+    /* REDUCED TOP/BOTTOM SPACE */
+    padding:30px 0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(212,175,55,0.08),
+    transparent 30%),
+
+    radial-gradient(circle at bottom right,
+    rgba(10,25,47,0.08),
+    transparent 35%),
+
+    linear-gradient(to bottom,#ffffff,#f8fafc);
+}
+
+/* Reduce left/right spacing */
+
+.about-section .container{
+    max-width:1200px;
+    padding-left:12px;
+    padding-right:12px;
+}
+
+/* =========================================================
+   BACKGROUND BLURS
+========================================================= */
+
+.about-blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    z-index:1;
+}
+
+.about-blur-1{
+    width:260px;
+    height:260px;
+    background:rgba(212,175,55,0.10);
+    top:-100px;
+    left:-70px;
+}
+
+.about-blur-2{
+    width:300px;
+    height:300px;
+    background:rgba(10,25,47,0.06);
+    right:-100px;
+    bottom:-120px;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about-content{
+    position:relative;
+    z-index:5;
+}
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.about-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 18px;
+
+    border-radius:100px;
+
+    background:rgba(10,25,47,0.05);
+    border:1px solid rgba(10,25,47,0.08);
+
+    color:var(--primary);
+
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:1.5px;
+
+    margin-bottom:18px;
+}
+
+.about-tag i{
+    font-size:7px;
+    color:var(--secondary);
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.about-title{
+    font-size:clamp(2rem,4vw,3.8rem);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-2px;
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+}
+
+.about-title span{
+    color:var(--secondary);
+    position:relative;
+    z-index:1;
+}
+
+.about-title span::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:5px;
+
+    width:100%;
+    height:10px;
+
+    background:rgba(212,175,55,0.15);
+
+    border-radius:50px;
+    z-index:-1;
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.about-text{
+    color:var(--muted);
+
+    font-size:1rem;
+    line-height:1.8;
+
+    margin-bottom:5px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stat-card{
+    padding:18px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,0.6);
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,0.05);
+
+    transition:all .35s ease;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 50px rgba(15,23,42,0.10);
+}
+
+.stat-card h3{
+    font-size:1.7rem;
+    font-weight:800;
+
+    color:var(--primary);
+
+    margin-bottom:4px;
+}
+
+.stat-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:.9rem;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.about-features{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.feature-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.feature-icon{
+    width:54px;
+    height:54px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(135deg,var(--primary),#132d52);
+
+    color:var(--secondary);
+
+    font-size:1rem;
+
+    flex-shrink:0;
+
+    box-shadow:
+    0 10px 25px rgba(10,25,47,0.15);
+}
+
+.feature-item h6{
+    font-size:1rem;
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:6px;
+}
+
+.feature-item p{
+    color:var(--muted);
+    margin:0;
+    line-height:1.6;
+    font-size:.95rem;
+}
+
+/* =========================================================
+   IMAGE SIDE
+========================================================= */
+
+.about-image-wrapper{
+    position:relative;
+    z-index:5;
+}
+
+.main-about-img{
+    width:100%;
+
+    border-radius:28px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 25px 60px rgba(15,23,42,0.15);
+
+    transition:all .45s ease;
+}
+
+.about-image-wrapper:hover .main-about-img{
+    transform:scale(1.02);
+}
+
+/* =========================================================
+   TECH ICONS UNDER IMAGE
+========================================================= */
+
+.tech-icons{
+    position:absolute;
+
+    /* NOW UNDER IMAGE */
+    bottom:-28px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:14px 20px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,0.82);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.6);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    z-index:5;
+}
+
+.tech-icon{
+    width:56px;
+    height:56px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.6rem;
+
+    transition:all .3s ease;
+}
+
+.tech-icon:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+.python{
+    background:rgba(53,114,165,0.12);
+    color:#3572A5;
+}
+
+.js{
+    background:rgba(247,223,30,0.12);
+    color:#f7df1e;
+}
+
+.aws{
+    background:rgba(255,153,0,0.12);
+    color:#ff9900;
+}
+
+/* =========================================================
+   GLASS SHAPE
+========================================================= */
+
+.glass-circle{
+    position:absolute;
+
+    top:-30px;
+    right:-30px;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,0.10);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.5);
+
+    z-index:1;
+}
+
+/* =========================================================
+   FEATURE MINIMAL CARDS
+========================================================= */
+
+.feature-card-minimal{
+    height:100%;
+
+    padding:26px 15px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,0.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.6);
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,0.04);
+
+    transition:all .35s ease;
+}
+
+.feature-card-minimal:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 50px rgba(15,23,42,0.10);
+}
+
+.mini-icon{
+    width:62px;
+    height:62px;
+
+    margin:0 auto 16px;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(135deg,var(--primary),#132d52);
+
+    color:var(--secondary);
+
+    font-size:1.3rem;
+
+    box-shadow:
+    0 10px 25px rgba(10,25,47,0.18);
+}
+
+.feature-card-minimal h5{
+    font-size:1rem;
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin:0;
+}
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media(max-width:991px){
+
+    .about-section{
+        text-align:center;
+        padding:30px 0;
+    }
+
+    .about-title{
+        font-size:3rem;
+    }
+
+    .about-text{
+        max-width:100%;
+    }
+
+    .feature-item{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .about-features{
+        margin-bottom:20px;
+    }
+
+    .tech-icons{
+        bottom:-24px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:767px){
+
+    .about-section{
+        padding:25px 0;
+    }
+
+    .about-title{
+        font-size:2.3rem;
+        line-height:1.15;
+    }
+
+    .about-text{
+        font-size:.96rem;
+    }
+
+    .stat-card{
+        padding:16px;
+    }
+
+    .stat-card h3{
+        font-size:1.5rem;
+    }
+
+    .feature-card-minimal{
+        padding:22px 12px;
+    }
+
+    .mini-icon{
+        width:56px;
+        height:56px;
+        font-size:1.15rem;
+    }
+
+    .tech-icons{
+        gap:10px;
+        padding:12px 16px;
+    }
+
+    .tech-icon{
+        width:48px;
+        height:48px;
+        font-size:1.35rem;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:576px){
+
+    .about-title{
+        font-size:1.9rem;
+        letter-spacing:-1px;
+    }
+
+    .about-tag{
+        font-size:.7rem;
+    }
+
+    .main-about-img{
+        border-radius:22px;
+    }
+
+    .tech-icons{
+        width:auto;
+        bottom:-22px;
+    }
+
+    .glass-circle{
+        width:90px;
+        height:90px;
+    }
+
+    .feature-card-minimal{
+        border-radius:20px;
+    }
+
+    .stat-card{
+        border-radius:18px;
+    }
+}
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media(max-width:400px){
+
+    .about-title{
+        font-size:1.7rem;
+    }
+
+    .stat-card h3{
+        font-size:1.3rem;
+    }
+
+    .feature-card-minimal h5{
+        font-size:.9rem;
+    }
+
+    .tech-icon{
+        width:44px;
+        height:44px;
+        font-size:1.2rem;
+    }
+}
+
+
+
+/* =========================================================
+   1. SHARED BASE STYLES (All Devices)
+   ========================================================= */
+#why-choose-us {
+    background-color: #0a192f !important;
+    overflow: hidden;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-subtitle {
+    color: #FFD700; /* Gold/Secondary */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Feature Card (Light Theme) */
+.feature-box {
+    background: #ffffff !important;
+    padding: 40px;
+    border-radius: 24px;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.icon-circle {
+    width: 65px;
+    height: 65px;
+    background: rgba(10, 25, 47, 0.05);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #0a192f;
+    margin-bottom: 25px;
+    transition: 0.3s ease;
+}
+
+.feature-title {
+    font-weight: 800;
+    color: #0a192f;
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+}
+
+.feature-text {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   2. DESKTOP STYLES (Lg Screens: 992px and up)
+   ========================================================= */
+@media (min-width: 992px) {
+    .centered-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #ffffff;
+        white-space: nowrap; /* Forces single line */
+        display: inline-block;
+    }
+
+    .feature-box:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .feature-box:hover .icon-circle {
+        background: #FFD700;
+        color: #0a192f;
+        transform: scale(1.1);
+    }
+}
+
+/* =========================================================
+   3. TABLET STYLES (Md Screens: 768px to 991px)
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 991px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    .centered-title {
+        font-size: 2.5rem;
+        color: #ffffff;
+        white-space: normal; /* Allows wrap if title is too long for tablet width */
+    }
+
+    .feature-box {
+        padding: 30px;
+    }
+}
+
+/* =========================================================
+   4. MOBILE STYLES (Sm Screens: 767px and below)
+   ========================================================= */
+@media (max-width: 767px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .centered-title {
+        font-size: 2rem;
+        color: #ffffff;
+        white-space: normal; /* Critical for mobile readability */
+        line-height: 1.3;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+
+    .feature-box {
+        text-align: center; /* Center content for mobile finger-scrolling */
+        padding: 35px 25px;
+    }
+
+    .icon-circle {
+        margin: 0 auto 20px auto; /* Centers icon */
+    }
+
+    .feature-title {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+
+/* =========================================================
+   1. SHARED BASE STYLES (All Devices)
+   ========================================================= */
+#process {
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.process-step-card {
+    position: relative;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.process-step-card:hover {
+    background: #f8fafc;
+}
+
+.step-number {
+    font-weight: 900;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.step-icon-box {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 2px solid var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+}
+
+.process-step-card.active .step-icon-box {
+    background: var(--primary);
+    color: white !important;
+    border-color: var(--primary);
+}
+
+.process-step-card.active .step-icon-box i {
+    color: white !important;
+}
+
+/* =========================================================
+   2. DESKTOP STYLES (Lg Screens: 992px and up)
+   ========================================================= */
+@media (min-width: 992px) {
+    .process-title {
+        white-space: nowrap;
+        display: inline-block;
+        font-size: clamp(2rem, 3.5vw, 3rem); /* Ensures title scales but stays centered */
+    }
+
+    .process-step-card {
+        border-right: 1px solid #f1f5f9;
+    }
+
+    .step-number {
+        font-size: 3.5rem;
+    }
+
+    .step-connector {
+        position: absolute;
+        top: 55px; 
+        left: calc(50% + 30px);
+        width: calc(100% - 60px);
+        height: 2px;
+        background: #f1f5f9;
+        z-index: 0;
+    }
+}
+
+/* =========================================================
+   3. TABLET STYLES (Md Screens: 768px to 991px)
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 991px) {
+    .process-title {
+        white-space: normal; /* Wrap to prevent clipping */
+        line-height: 1.2;
+    }
+
+    .process-step-card {
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 2rem !important;
+        margin-bottom: 2rem;
+    }
+
+    .step-number {
+        font-size: 3rem;
+    }
+}
+
+/* =========================================================
+   4. MOBILE STYLES (Sm Screens: 767px and below)
+   ========================================================= */
+@media (max-width: 767px) {
+    .process-title {
+        white-space: normal;
+        font-size: 1.85rem;
+        line-height: 1.3;
+    }
+
+    .process-step-card {
+        border-right: none;
+        border-bottom: 1px solid #f1f5f9;
+        margin-bottom: 2rem;
+        padding-bottom: 3rem !important;
+    }
+
+    .step-number {
+        font-size: 2.5rem;
+        top: -10px;
+    }
+
+    .process-step-card:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+/* =========================================================
+   1. SHARED BASE STYLES
+   ========================================================= */
+#services {
+    background-color: #0a192f !important;
+    padding: 100px 0;
+}
+
+.services-main-title {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+/* Glassmorphism Card Style */
+.service-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 3rem;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.card-title {
+    color: #0a192f;
+    font-weight: 700;
+}
+
+.card-description {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+    background: #0a192f;
+    color: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
+
+.service-list li {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.service-list i {
+    color: #d4af37; /* Bronze Accent */
+}
+
+/* =========================================================
+   2. DESKTOP STYLES (min-width: 992px)
+   ========================================================= */
+@media (min-width: 992px) {
+    .services-main-title {
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    .service-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Hover Icon Effect */
+    .service-card:hover .service-icon {
+        background: #d4af37; /* Shifts to bronze on hover */
+        transform: scale(1.1) rotate(10deg);
+    }
+
+    /* Gradient Top Border on Hover */
+    .service-card::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #d4af37, #f1c40f);
+        border-radius: 24px 24px 0 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover::after {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   3. TABLET STYLES (768px - 991px)
+   ========================================================= */
+@media (max-width: 991px) {
+    #services {
+        padding: 80px 0;
+    }
+
+    .services-main-title {
+        font-size: 2.5rem;
+        white-space: normal;
+    }
+
+    .service-card {
+        padding: 2.5rem;
+    }
+}
+
+/* =========================================================
+   4. MOBILE STYLES (max-width: 767px)
+   ========================================================= */
+@media (max-width: 767px) {
+    #services {
+        padding: 60px 0;
+    }
+
+    .services-main-title {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .service-icon {
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .service-list li {
+        justify-content: center;
+    }
+}
+
+
+
+/* Hiring Section Styling */
+.hiring-card {
+    background: #fff;
+    transition: all 0.4s ease;
+    border-color: #f1f5f9 !important;
+}
+
+/* Featured Card (Middle) */
+.hiring-card.active {
+    background: var(--primary); /* Midnight Navy */
+    transform: scale(1.05);
+    z-index: 2;
+    border: none !important;
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary); /* Bronze */
+    color: var(--primary);
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hiring-list li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Hover effects for side cards */
+.hiring-card:not(.active):hover {
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.05);
+    border-color: var(--secondary) !important;
+}
+
+/* Button Customizations */
+.btn-outline-primary {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================= */
+
+@media (max-width: 991px) {
+    .hiring-card.active {
+        transform: scale(1); /* Remove scale on mobile for better fit */
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .hiring-card {
+        padding: 2rem !important;
+    }
+    
+    .display-5 {
+        font-size: 2.2rem;
+    }
+}
+
+
+
+/* =========================================================
+   1. BACKGROUND & LAYOUT
+   ========================================================= */
+#consultation {
+    background-color: #0a192f;
+    min-height: 600px;
+    z-index: 1;
+    /* Updated Padding: 30px Top/Bottom */
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.consultation-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(50, 74, 178, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 191, 0, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+.tech-grid-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+.text-gradient-gold {
+    background: linear-gradient(90deg, #FFBF00, #F1C40F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   2. FEATURE ITEMS
+   ========================================================= */
+.feature-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(10px);
+}
+
+.icon-box-md {
+    width: 55px; height: 55px;
+    background: rgba(255, 191, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+/* =========================================================
+   3. FORM & CARD STYLING
+   ========================================================= */
+.consultation-card {
+    border: none;
+    box-shadow: 0 50px 100px -20px rgba(2, 6, 23, 0.5);
+}
+
+.custom-input {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-input:focus {
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: -5px 5px 0px rgba(10, 25, 47, 0.05);
+    outline: none;
+}
+
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(50, 74, 178, 0.3);
+}
+
+/* =========================================================
+   4. RESPONSIVE
+   ========================================================= */
+@media (max-width: 991px) {
+    #consultation { text-align: center; }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem !important;
+    }
+    
+    .icon-box-md { margin: 0 auto 1.5rem auto !important; }
+    
+    .feature-item:hover { transform: translateY(-5px); }
+    
+    .consultation-card { margin-top: 50px; }
+}
+
+@media (max-width: 576px) {
+    .display-4 { font-size: 2.3rem; }
+    /* Overriding py-100 on mobile to maintain your 30px preference */
+    #consultation.py-100 { 
+        padding-top: 30px !important; 
+        padding-bottom: 30px !important; 
+    }
+}
+
+
+
+
+#clients {
+    background-color: #ffffff;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* The Container for the Logo */
+.client-box {
+    background: #ffffff;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #eeeeee; /* LogicRays uses very subtle borders */
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.client-box img {
+    max-height: 45px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    /* Ensuring logos are vibrant and original colors */
+}
+
+/* Hover Effect: LogicRays-style elevation */
+.client-box:hover {
+    border-color: var(--secondary); /* Bronze accent */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+    transform: translateY(-3px);
+}
+
+.client-box:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile & Tablet Fine-tuning */
+@media (max-width: 991px) {
+    .client-box {
+        height: 80px;
+        padding: 15px;
+    }
+    .client-box img {
+        max-height: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .client-box {
+        height: 70px;
+        padding: 10px;
+        margin-bottom: 0; /* Tighten grid on mobile */
+    }
+    .client-box img {
+        max-height: 30px;
+    }
+    /* Make the grid look like one continuous unit */
+    .row.g-2 > [class*='col-'] {
+        padding: 0; 
+    }
+    .client-box {
+        border-radius: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+}
+
+/* Section Header Typography */
+.tracking-widest {
+    letter-spacing: 0.15em;
+}
+
+
+/* Testimonial Core Styles */
+#testimonials {
+    background-color: #0a192f !important;
+}
+
+.trust-stats-box {
+    border-radius: 20px;
+}
+
+.stats-circle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.testimonial-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(2, 6, 23, 0.08) !important;
+    border-color: var(--secondary);
+}
+
+/* Tech Tags (LogicRays Style) */
+.tech-tag .badge {
+    font-weight: 500;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    background-color: #fff !important;
+}
+
+/* Client Avatars */
+.client-avatar {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================= */
+
+@media (max-width: 991px) {
+    .testimonial-card {
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #testimonials {
+        text-align: center;
+    }
+    .testimonial-card {
+        text-align: left; /* Keep text alignment left for readability */
+    }
+    .d-flex.align-items-center {
+        justify-content: center;
+    }
+}
+
+
+
+/* Container Spacing */
+#pricing {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* Card Base Styles */
+.price-card {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: #fff;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Shadow Hover Effect */
+.shadow-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.08) !important;
+    border-color: var(--secondary) !important;
+}
+
+/* Featured Card (Professional Tier) */
+.featured-card {
+    background: linear-gradient(145deg, var(--primary) 0%, #0a192f 100%);
+    color: white;
+}
+
+.featured-card .price-list li {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.featured-card .btn-secondary {
+    background-color: var(--secondary);
+    border: none;
+    transition: transform 0.2s;
+}
+
+.featured-card .btn-secondary:hover {
+    transform: scale(1.03);
+    background-color: #fff;
+}
+
+/* Popular Ribbon */
+.popular-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: var(--secondary);
+    color: var(--primary);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Typography & Lists */
+.price-list li {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.bg-success-soft {
+    background-color: #ecfdf5;
+    color: #059669;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Single Line Title Fix */
+@media (min-width: 992px) {
+    .pricing-main-title {
+        white-space: nowrap;
+        display: inline-block;
+    }
+}
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+    .popular-ribbon {
+        right: -30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .display-4 {
+        font-size: 2.2rem;
+    }
+    .price-card {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+/* --- Global Variables --- */
+:root {
+    --light-bg: #f8fafc;
+}
+
+/* --- Section Styling --- */
+#business-impact {
+    background: linear-gradient(135deg, var(--primary) 0%, #0a192f 100%) !important;
+}
+
+/* Force title into one line on desktop */
+@media (min-width: 992px) {
+    .impact-main-title {
+        white-space: nowrap;
+    }
+}
+
+.impact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.impact-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.active-impact {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tracking-widest {
+    letter-spacing: 0.15em;
+}
+
+/* --- Modal & Form Styling --- */
+.modal-content {
+    background-color: transparent;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.border-white-10 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.form-control, .form-select {
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #fff !important;
+    border: 1px solid var(--secondary) !important;
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.15);
+}
+
+/* --- Drag & Drop Upload Area --- */
+.upload-area {
+    border: 2px dashed #cbd5e1;
+    background-color: var(--light-bg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-area:hover {
+    border-color: var(--primary);
+    background-color: #f1f5f9;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 991px) {
+    .modal-dialog {
+        margin: 1rem;
+    }
+    .modal-body .bg-primary {
+        padding: 3rem 1.5rem !important;
+        border-end: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 576px) {
+    .display-5 {
+        font-size: 1.75rem;
+    }
+    .btn-secondary {
+        width: 100%;
+    }
+    .impact-card {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+
+/* FAQ Custom Styles */
+#faq-section {
+    background-color: #ffffff;
+}
+
+.accordion-item {
+    border: 1px solid #edf2f7 !important;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    border-color: var(--secondary) !important; /* Gold border on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.accordion-button {
+    font-size: 1.1rem;
+    color: var(--primary) !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--primary) !important;
+    background-color: #fcfcfc !important;
+    border-bottom: 1px solid #edf2f7;
+}
+
+/* Gold Indicator Icon */
+.accordion-button::after {
+    background-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: sepia(100%) saturate(2000%) hue-rotate(10deg); /* Makes the icon gold */
+}
+
+/* Typography */
+.tracking-widest {
+    letter-spacing: 0.15em;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .display-6 {
+        font-size: 2rem;
+    }
+    .accordion-button {
+        font-size: 1rem;
+        padding: 1.25rem 1rem !important;
+    }
+}
+
+
+
+
+/* Contact Section Styles */
+.contact-info-card {
+    background: linear-gradient(135deg, #020617 0%, #0a192f 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Decoration for the Tech Look */
+.contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 215, 0, 0.05); /* Gold Hint */
+    border-radius: 50%;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Form Refinement */
+.form-control:focus, .form-select:focus {
+    background-color: #ffffff !important;
+    border: 1px solid var(--secondary) !important;
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+}
+
+.map-container {
+    filter: grayscale(100%) invert(90%) contrast(90%); /* Sleek dark map look */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-container:hover {
+    filter: none; /* Map turns to color on hover */
+}
+
+/* Button Elevation */
+.btn-primary.shadow {
+    box-shadow: 0 10px 20px rgba(2, 6, 23, 0.2) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .contact-info-card {
+        padding: 2.5rem 1.5rem !important;
+    }
+}
+
+/* --- Footer Quantum Core Styling --- */
+.footer-quantum {
+    background: linear-gradient(to bottom, #020617, #01040a); /* Deeper Tech Navy */
+    border-top: 3px solid var(--secondary);
+    color: #94a3b8;
+    position: relative;
+    overflow: hidden;
+}
+
+.tracking-wider { letter-spacing: 0.1em; }
+.tracking-widest { letter-spacing: 0.2em; }
+
+/* Navigation Links */
+.footer-nav li {
+    margin-bottom: 12px;
+}
+
+.footer-nav a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.hover-gold:hover {
+    color: var(--secondary) !important;
+    transform: translateX(8px); /* Sleek slide effect */
+}
+
+/* Social Buttons */
+.btn-quantum-social {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Modern rounded square */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-quantum-social:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+    box-shadow: 0 10px 15px -3px rgba(255, 215, 0, 0.3);
+}
+
+/* Divider Styling */
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hover-white:hover {
+    color: #ffffff !important;
+}
+
+/* Responsive Stacking Adjustments */
+@media (max-width: 991px) {
+    .footer-quantum {
+        text-align: left;
+    }
+    .footer-quantum .social-links {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-quantum h6 {
+        margin-top: 1.5rem;
+    }
+}
+
+
+
+
+/* --- Core Variables --- */
+:root {
+    --quantum-amber: linear-gradient(135deg, #FFBF00 0%, #FF8C00 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --tech-blue: #4D5FFF; /* Your requested tech blue */
+}
+
+/* --- Entrance & Reveal Animations --- */
+.initial-hide {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Desktop initial offsets */
+.spatial-sidebar.initial-hide { transform: translateY(-50%) translateX(-50px); }
+.chat-spatial-trigger.initial-hide { transform: translateY(50px); }
+
+/* Reveal state triggered by JS */
+.initial-hide.reveal {
+    opacity: 1;
+}
+.spatial-sidebar.reveal { transform: translateY(-50%) translateX(0); }
+.chat-spatial-trigger.reveal { transform: translateY(0); }
+
+/* --- Sidebar Navigation --- */
+.spatial-sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spatial-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    color: var(--tech-blue); /* Default Blue Color */
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- Specific Brand Colors (Before Hover) --- */
+.spatial-item.fb i { color: #1877F2; } /* Facebook Blue */
+.spatial-item.wa i { color: #25D366; } /* WhatsApp Green */
+.spatial-item.li i { color: #0077B5; } /* LinkedIn Blue */
+
+/* --- Hover Effects --- */
+.spatial-item:hover {
+    width: 160px;
+    background: var(--quantum-amber);
+    color: #111 !important; /* Turns text/icons dark for contrast against amber */
+    transform: scale(1.08) translateX(10px);
+    box-shadow: 0 20px 40px rgba(255, 191, 0, 0.4);
+}
+
+.spatial-item:hover i {
+    color: #111 !important; /* Forces icon to turn dark on hover */
+}
+
+/* --- Shared Icons & Typography --- */
+.spatial-item i { 
+    font-size: 22px; 
+    min-width: 24px; 
+    text-align: center; 
+    transition: color 0.3s ease;
+}
+
+.spatial-text { 
+    margin-left: 15px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-size: 11px; 
+    opacity: 0; 
+    transition: 0.3s; 
+}
+
+.spatial-item:hover .spatial-text { 
+    opacity: 1; 
+}
+
+/* --- Custom Chat Trigger (Amber Button) --- */
+.chat-spatial-trigger {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 10000;
+    width: 60px;
+    height: 60px;
+    background: var(--quantum-amber);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(255, 191, 0, 0.3);
+    transition: all 0.4s ease;
+    color: #111;
+    font-size: 24px;
+}
+
+.chat-spatial-trigger:hover {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 20px 45px rgba(255, 191, 0, 0.5);
+}
+
+.chat-tooltip {
+    position: absolute;
+    right: 75px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.chat-spatial-trigger:hover .chat-tooltip {
+    opacity: 1;
+}
+
+/* --- Mobile Optimization --- */
+@media (max-width: 768px) {
+    .spatial-sidebar {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px); /* Offset for slide-up */
+        flex-direction: row;
+        background: rgba(0,0,0,0.8); /* Darker for mobile legibility */
+        padding: 10px 20px;
+        border-radius: 50px;
+        width: auto;
+        border: 1px solid var(--glass-border);
+    }
+    
+    /* Animation fix for mobile center alignment */
+    .spatial-sidebar.reveal { 
+        transform: translateX(-50%) translateY(0); 
+    }
+
+    .chat-spatial-trigger {
+        bottom: auto;
+        top: 20px; /* Moves to top-right on mobile to avoid blocking the dock */
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+    
+    .chat-tooltip { display: none; }
+    
+    .spatial-item:active { 
+        transform: scale(1.2); 
+    }
+    
+    /* Keep width constant on mobile hover to avoid layout shifts */
+    .spatial-item:hover {
+        width: 54px; 
+    }
+}
+
+
+
+.centered-title{
+    white-space: nowrap;
+    display: inline-block;
+}
