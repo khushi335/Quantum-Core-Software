@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['project24.quantumcoresoftware.com','www.project24.quantumcoresoftware.com']
+ALLOWED_HOSTS = ['quantumcoresoftware.com','www.quantumcoresoftware.com']
 
 
 # Application definition

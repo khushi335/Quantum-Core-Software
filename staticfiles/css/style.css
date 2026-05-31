@@ -1135,126 +1135,167 @@ h1, h2, h3, h4, .navbar-brand, .btn-bronze {
 
 
 
-/* =========================================================
-   1. SHARED BASE STYLES
-   ========================================================= */
 #services {
     background-color: #0a192f !important;
     padding: 100px 0;
 }
 
+/* =========================
+   HEADER
+   ========================= */
 .services-main-title {
     color: #ffffff;
     font-weight: 800;
 }
 
-/* Glassmorphism Card Style */
+#services h6 {
+    letter-spacing: 0.15em;
+}
+
+/* =========================
+   SERVICE CARD (BASE)
+   ========================= */
 .service-card {
     background: #ffffff;
     border-radius: 24px;
     padding: 3rem;
     position: relative;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1;
+    overflow: hidden;
+
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.card-title {
-    color: #0a192f;
-    font-weight: 700;
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
 }
 
-.card-description {
-    color: #64748b;
-    font-size: 0.95rem;
-    line-height: 1.6;
+/* Top gradient line on hover */
+.service-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #d4af37, #f1c40f);
+    opacity: 0;
+    transition: 0.3s ease;
 }
 
+.service-card:hover::after {
+    opacity: 1;
+}
+
+/* =========================
+   ICON
+   ========================= */
 .service-icon {
     width: 65px;
     height: 65px;
     background: #0a192f;
     color: #ffffff;
     border-radius: 16px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 1.6rem;
-    margin-bottom: 2rem;
-    transition: all 0.4s ease;
+    margin-bottom: 1.5rem;
+
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background: #d4af37;
+    transform: scale(1.08) rotate(6deg);
+}
+
+/* =========================
+   TEXT
+   ========================= */
+.card-title {
+    color: #0a192f;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.card-description {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* =========================
+   SERVICE LIST (FIXED)
+   ========================= */
+.service-list {
+    margin-top: 18px;
+    padding-left: 0;
 }
 
 .service-list li {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: #475569;
+
     margin-bottom: 10px;
+
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    line-height: 1.5;
+    text-align: left;
 }
 
 .service-list i {
-    color: #d4af37; /* Bronze Accent */
+    color: #d4af37;
+    margin-top: 4px;
+    flex-shrink: 0;
 }
 
-/* =========================================================
-   2. DESKTOP STYLES (min-width: 992px)
-   ========================================================= */
+/* =========================
+   DESKTOP
+   ========================= */
 @media (min-width: 992px) {
+
     .services-main-title {
         white-space: nowrap;
-        display: inline-block;
     }
 
-    .service-card:hover {
-        transform: translateY(-15px);
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-    }
-
-    /* Hover Icon Effect */
-    .service-card:hover .service-icon {
-        background: #d4af37; /* Shifts to bronze on hover */
-        transform: scale(1.1) rotate(10deg);
-    }
-
-    /* Gradient Top Border on Hover */
-    .service-card::after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 5px;
-        background: linear-gradient(90deg, #d4af37, #f1c40f);
-        border-radius: 24px 24px 0 0;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .service-card:hover::after {
-        opacity: 1;
+    .service-card {
+        padding: 3rem;
     }
 }
 
-/* =========================================================
-   3. TABLET STYLES (768px - 991px)
-   ========================================================= */
+/* =========================
+   TABLET
+   ========================= */
 @media (max-width: 991px) {
+
     #services {
         padding: 80px 0;
     }
 
     .services-main-title {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
         white-space: normal;
     }
 
     .service-card {
-        padding: 2.5rem;
+        padding: 2.4rem;
     }
 }
 
-/* =========================================================
-   4. MOBILE STYLES (max-width: 767px)
-   ========================================================= */
+/* =========================
+   MOBILE
+   ========================= */
 @media (max-width: 767px) {
+
     #services {
         padding: 60px 0;
     }
@@ -1264,16 +1305,20 @@ h1, h2, h3, h4, .navbar-brand, .btn-bronze {
     }
 
     .service-card {
-        text-align: center;
         padding: 2rem;
+        text-align: left;
     }
 
     .service-icon {
-        margin: 0 auto 1.5rem auto;
+        margin-bottom: 1.2rem;
     }
 
     .service-list li {
-        justify-content: center;
+        justify-content: flex-start;
+    }
+
+    .card-description {
+        text-align: left;
     }
 }
 
@@ -1885,6 +1930,154 @@ h1, h2, h3, h4, .navbar-brand, .btn-bronze {
 
 
 
+
+
+
+
+.blog-section {
+  padding: 80px 20px;
+  background: #f8fafc;
+}
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading span {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-heading h2 {
+  font-size: 36px;
+  margin: 12px 0;
+  color: #111827;
+}
+
+.section-heading p {
+  max-width: 700px;
+  margin: auto;
+  color: #6b7280;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.blog-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.blog-image img {
+  width: 100%;
+  display: block;
+  height: 230px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 24px;
+}
+
+.blog-category {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.blog-content h3 {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.blog-content h3 a {
+  color: #111827;
+  text-decoration: none;
+}
+
+.blog-content h3 a:hover {
+  color: #2563eb;
+}
+
+.blog-content p {
+  color: #6b7280;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.read-more {
+  text-decoration: none;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.read-more:hover {
+  color: #1d4ed8;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-image img {
+    height: 220px;
+  }
+
+  .section-heading h2 {
+    font-size: 26px;
+  }
+
+  .blog-content h3 {
+    font-size: 20px;
+  }
+}
+
+
+
+
+
 /* Contact Section Styles */
 .contact-info-card {
     background: linear-gradient(135deg, #020617 0%, #0a192f 100%) !important;
@@ -1941,83 +2134,161 @@ h1, h2, h3, h4, .navbar-brand, .btn-bronze {
     }
 }
 
-/* --- Footer Quantum Core Styling --- */
+
+
+
+
+/* -------------------------------
+   Quantum Core Footer
+--------------------------------*/
 .footer-quantum {
-    background: linear-gradient(to bottom, #020617, #01040a); /* Deeper Tech Navy */
+    background: linear-gradient(180deg, #020617 0%, #01040a 100%);
     border-top: 3px solid var(--secondary);
     color: #94a3b8;
-    position: relative;
     overflow: hidden;
 }
 
-.tracking-wider { letter-spacing: 0.1em; }
-.tracking-widest { letter-spacing: 0.2em; }
+.tracking-wider {
+    letter-spacing: 0.12em;
+}
 
-/* Navigation Links */
+.tracking-widest {
+    letter-spacing: 0.18em;
+}
+
+/* About */
+.footer-about {
+    line-height: 1.8;
+    max-width: 420px;
+    color: #cbd5e1;
+}
+
+/* Navigation */
+.footer-nav {
+    padding: 0;
+    margin: 0;
+}
+
 .footer-nav li {
     margin-bottom: 12px;
 }
 
 .footer-nav a {
-    color: #64748b;
+    color: #94a3b8;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
     display: inline-block;
-    transition: all 0.3s ease;
 }
 
-.hover-gold:hover {
-    color: var(--secondary) !important;
-    transform: translateX(8px); /* Sleek slide effect */
+.footer-nav a:hover {
+    color: var(--secondary);
+    transform: translateX(6px);
 }
 
-/* Social Buttons */
+/* Social */
+.social-links {
+    gap: 12px;
+}
+
 .btn-quantum-social {
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #fff;
     text-decoration: none;
-    border-radius: 8px; /* Modern rounded square */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    transition: all .3s ease;
 }
 
 .btn-quantum-social:hover {
     background: var(--secondary);
-    color: var(--primary);
-    transform: translateY(-5px);
-    border-color: var(--secondary);
-    box-shadow: 0 10px 15px -3px rgba(255, 215, 0, 0.3);
+    color: #000;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(255, 215, 0, 0.25);
 }
 
-/* Divider Styling */
+/* Contact */
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer-contact-item i {
+    color: var(--secondary);
+    margin-top: 4px;
+    min-width: 18px;
+}
+
+.footer-contact-item p {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+/* Divider */
 .footer-divider {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
+/* Hover */
 .hover-white:hover {
-    color: #ffffff !important;
+    color: #fff !important;
 }
 
-/* Responsive Stacking Adjustments */
+/* Tablet */
 @media (max-width: 991px) {
     .footer-quantum {
         text-align: left;
     }
-    .footer-quantum .social-links {
-        margin-bottom: 2rem;
+
+    .footer-about {
+        max-width: 100%;
+    }
+
+    .social-links {
+        margin-bottom: 10px;
     }
 }
 
+/* Mobile */
 @media (max-width: 576px) {
+
+    .footer-quantum {
+        padding-top: 3rem;
+    }
+
+    .footer-quantum h4,
     .footer-quantum h6 {
-        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-nav li {
+        margin-bottom: 10px;
+    }
+
+    .btn-quantum-social {
+        width: 42px;
+        height: 42px;
+    }
+
+    .footer-contact-item {
+        gap: 10px;
+        margin-bottom: 14px;
+    }
+
+    .list-inline-item {
+        display: block;
+        margin: 8px 0 !important;
     }
 }
-
 
 
 
@@ -2181,7 +2452,7 @@ h1, h2, h3, h4, .navbar-brand, .btn-bronze {
 
     .chat-spatial-trigger {
         bottom: auto;
-        top: 20px; /* Moves to top-right on mobile to avoid blocking the dock */
+        top: 60px; /* Moves to top-right on mobile to avoid blocking the dock */
         right: 20px;
         width: 52px;
         height: 52px;

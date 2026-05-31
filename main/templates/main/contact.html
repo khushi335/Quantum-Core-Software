@@ -2,283 +2,255 @@
 {% load static %}
 
 {% block content %}
+
 <style>
-    :root {
-        --q-navy: #020617;
-        --q-gold: #FFD700;
-        --q-blue: #3b82f6;
-        --q-glass: rgba(15, 23, 42, 0.95);
-        --q-input-bg: #f8fafc;
-    }
+:root {
+    --q-navy: #050816;
+    --q-blue: #3b82f6;
+    --q-gold: #fbbf24;
+}
 
-    /* --- Hero: Deep & Architectural --- */
-    .contact-hero {
-        background-color: var(--q-navy);
-        background-image: 
-            radial-gradient(circle at 20% 35%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
-            linear-gradient(to bottom, var(--q-navy), #0f172a);
-        padding: 120px 0 160px;
-        color: white;
-    }
+/* ================= HERO ================= */
+.contact-hero {
+    background: radial-gradient(circle at 20% 30%, rgba(59,130,246,0.25), transparent 45%),
+                linear-gradient(180deg, #050816, #0b1224);
+    padding: 100px 0 140px;
+    text-align: center;
+    color: white;
+}
 
-    .section-tag {
-        color: var(--q-gold);
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        display: block;
-        margin-bottom: 1rem;
-    }
+.section-tag {
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+    color: var(--q-gold);
+    text-transform: uppercase;
+}
 
-    /* --- Floating Contact Card --- */
-    .contact-wrapper {
-        margin-top: -100px; /* Pulls form into the hero section */
-        position: relative;
-        z-index: 20;
-    }
+.contact-hero h1 {
+    font-weight: 800;
+    font-size: 2.8rem;
+}
 
-    .premium-card {
-        background: white;
-        border-radius: 4px; /* Sharp corners for professional look */
-        box-shadow: 0 50px 100px -20px rgba(2, 6, 23, 0.15);
-        border: 1px solid rgba(0,0,0,0.05);
-        overflow: hidden;
-    }
+/* ================= WRAPPER ================= */
+.contact-wrapper {
+    margin-top: -80px;
+}
 
-    /* --- Dark Sidebar with Texture --- */
+/* ================= CARD ================= */
+.premium-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar-premium {
+    background: linear-gradient(145deg, #050816, #0b1224);
+    color: white;
+    padding: 40px;
+    position: relative;
+}
+
+/* reduce padding on smaller screens */
+@media (max-width: 992px) {
     .sidebar-premium {
-        background: var(--q-navy);
-        padding: 4rem 3.5rem;
-        position: relative;
-        overflow: hidden;
+        padding: 28px;
+    }
+}
+
+.contact-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(59,130,246,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--q-blue);
+}
+
+/* ================= EMAIL FIX (IMPORTANT) ================= */
+.email-text {
+    display: block;
+    width: 100%;
+    white-space: nowrap;        /* force one line */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+
+/* ================= FORM ================= */
+.form-header {
+    padding: 40px 40px 10px;
+}
+
+.form-body {
+    padding: 10px 40px 40px;
+}
+
+.q-control {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    transition: 0.2s;
+}
+
+.q-control:focus {
+    border-color: var(--q-blue);
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    outline: none;
+}
+
+/* ================= BUTTON ================= */
+.btn-submit-premium {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, var(--q-blue), #1d4ed8);
+    color: white;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-submit-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+}
+
+/* ================= RESPONSIVE FIX (KEY PART) ================= */
+@media (max-width: 992px) {
+    .contact-hero h1 {
+        font-size: 2.2rem;
     }
 
-    .sidebar-premium::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-        opacity: 0.05;
+    .form-header, .form-body {
+        padding: 25px;
+    }
+}
+
+/* stack layout properly */
+@media (max-width: 768px) {
+    .row.g-0 {
+        flex-direction: column;
     }
 
-    .contact-item {
-        transition: transform 0.3s ease;
-    }
-    .contact-item:hover { transform: translateX(5px); }
-
-    .icon-box {
-        width: 40px;
-        height: 40px;
-        border-bottom: 2px solid var(--q-gold);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        margin-right: 20px;
-        color: var(--q-blue);
-    }
-
-    /* --- Modern Form Styling --- */
-    .form-header {
-        padding: 4rem 4rem 2rem;
-    }
-
-    .form-body {
-        padding: 0 4rem 4rem;
-    }
-
-    .q-input-group {
-        position: relative;
-        margin-bottom: 1.5rem;
-    }
-
-    .q-label {
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--q-blue);
-        margin-bottom: 8px;
-        display: block;
-    }
-
-    .q-control {
-        background: var(--q-input-bg);
-        border: 1px solid #e2e8f0;
-        border-radius: 2px;
-        padding: 14px 18px;
-        font-size: 0.95rem;
-        transition: 0.3s;
+    .sidebar-premium {
         width: 100%;
     }
-
-    .q-control:focus {
-        background: white;
-        border-color: var(--q-navy);
-        outline: none;
-        box-shadow: 10px 10px 0px rgba(2, 6, 23, 0.03);
-    }
-
-    /* --- Action Button --- */
-    .btn-submit-premium {
-        background: var(--q-navy);
-        color: white;
-        border: none;
-        padding: 20px;
-        font-weight: 800;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        transition: 0.4s;
-        width: 100%;
-        margin-top: 1rem;
-    }
-
-    .btn-submit-premium:hover {
-        background: var(--q-blue);
-        letter-spacing: 4px;
-        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
-    }
-
-    .social-link {
-        width: 45px;
-        height: 45px;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .social-link:hover {
-        background: var(--q-gold);
-        color: var(--q-navy);
-        transform: translateY(-3px);
-    }
+}
 </style>
 
-<section class="contact-hero text-center">
-    <div class="container">
-        <span class="section-tag">Secure Infrastructure</span>
-        <h1 class="display-3 fw-bold mb-3">Initialize <span class="text-primary">Contact</span></h1>
-        <p class="lead text-white-50 mx-auto" style="max-width: 600px;">
-            Ready to scale? Connect with our engineering team to discuss architecture, timelines, and digital growth.
-        </p>
-    </div>
+<!-- HERO -->
+<section class="contact-hero">
+    <span class="section-tag">Secure Communication</span>
+    <h1>Let’s Build Something Powerful</h1>
+    <p style="opacity:.7; max-width:600px; margin:10px auto;">
+        Connect with our engineering team for scalable digital solutions.
+    </p>
 </section>
 
+<!-- CARD -->
 <div class="container contact-wrapper">
     <div class="row g-0 premium-card">
-        <!-- Technical Specs Sidebar -->
-        <div class="col-lg-5 sidebar-premium d-flex flex-column">
-            <div class="position-relative z-index-10">
-                <h2 class="h4 fw-bold mb-5 text-white">Project Hub</h2>
-                
-                <div class="contact-item d-flex mb-5">
-                    <div class="icon-box"><i class="fas fa-terminal"></i></div>
-                    <div>
-                        <span class="q-label text-white-50">Main Headquarters</span>
-                        <p class="mb-0 text-white fw-bold">4539 N 22ND ST STE R</p>
-                        <p class="small text-white-50">Phoenix, AZ 85016</p>
-                    </div>
-                </div>
 
-                <div class="contact-item d-flex mb-5">
-                    <div class="icon-box"><i class="fas fa-satellite-dish"></i></div>
-                    <div>
-                        <span class="q-label text-white-50">Direct Lines</span>
-                        <p class="mb-0 text-white fw-bold">(602) 649 5748</p>
-                        <p class="small text-white-50">(928) 851 3370</p>
-                    </div>
-                </div>
+        <!-- SIDEBAR (NOW RESPONSIVE + LESS WIDTH PRESSURE) -->
+        <div class="col-lg-4 col-md-5 sidebar-premium">
 
-                <div class="contact-item d-flex">
-                    <div class="icon-box"><i class="fas fa-code-branch"></i></div>
-                    <div>
-                        <span class="q-label text-white-50">General Inquiries</span>
-                        <p class="mb-0 text-white fw-bold">info@quantumcoresoftware.com</p>
-                    </div>
+            <h4 class="mb-4 fw-bold">Project Hub</h4>
+
+            <div class="contact-item">
+                <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <div class="small text-white-50">Headquarters</div>
+                    <div class="fw-bold">Phoenix, AZ</div>
                 </div>
             </div>
 
-            <div class="mt-auto position-relative z-index-10">
-                <hr class="border-secondary opacity-25 mb-4">
-                <p class="q-label text-white-50 mb-3">Sync with us</p>
-                <div class="d-flex gap-3">
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/9779808974040" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <div class="contact-item">
+                <div class="icon-box"><i class="fas fa-phone"></i></div>
+                <div>
+                    <div class="small text-white-50">Direct Lines</div>
+                    <div class="fw-bold">(602) 649 5748</div>
+                    <div class="fw-bold">(928) 851 3370</div>
                 </div>
             </div>
+
+            <div class="contact-item">
+                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <div class="small text-white-50">Email</div>
+
+                    <!-- EMAIL FIXED -->
+                    <div class="email-text">
+                        info@quantumcoresoftware.com
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
-        <!-- Inquiry Form -->
-        <div class="col-lg-7 bg-white">
+        <!-- FORM -->
+        <div class="col-lg-8 col-md-7">
+
             <div class="form-header">
-                <h3 class="fw-bold text-navy mb-1">Send a Brief</h3>
-                <p class="text-muted small">Average response time: &lt; 12 hours</p>
+                <h3 class="fw-bold">Send a Brief</h3>
+                <p class="text-muted">We usually respond within 12 hours</p>
             </div>
-            
+
             <div class="form-body">
-                <form id="contactPageForm" method="POST">
+                <form method="POST">
                     {% csrf_token %}
-                    <div class="row g-4">
+
+                    <div class="row g-3">
+
                         <div class="col-md-6">
-                            <div class="q-input-group">
-                                <label class="q-label">First Name</label>
-                                <input type="text" name="first_name" class="q-control" placeholder="Jane" required>
-                            </div>
+                            <input class="q-control" name="first_name" placeholder="First Name">
                         </div>
+
                         <div class="col-md-6">
-                            <div class="q-input-group">
-                                <label class="q-label">Last Name</label>
-                                <input type="text" name="last_name" class="q-control" placeholder="Doe" required>
-                            </div>
+                            <input class="q-control" name="last_name" placeholder="Last Name">
                         </div>
+
                         <div class="col-12">
-                            <div class="q-input-group">
-                                <label class="q-label">Business Email</label>
-                                <input type="email" name="email" class="q-control" placeholder="name@company.com" required>
-                            </div>
+                            <input class="q-control" name="email" placeholder="Email">
                         </div>
+
                         <div class="col-12">
-                            <div class="q-input-group">
-                                <label class="q-label">Selection Criteria</label>
-                                <select name="service" class="q-control">
-                                    <option>Full-Stack Web Development</option>
-                                    <option>AI & Machine Learning Solutions</option>
-                                    <option>SEO & Digital Growth</option>
-                                    <option>Custom CRM/Software Engineering</option>
-                                </select>
-                            </div>
+                            <select class="q-control" name="service">
+                                <option>Web Development</option>
+                                <option>AI Solutions</option>
+                                <option>SEO Growth</option>
+                            </select>
                         </div>
+
                         <div class="col-12">
-                            <div class="q-input-group">
-                                <label class="q-label">Technical Scope / Goals</label>
-                                <textarea name="message" class="q-control" rows="4" placeholder="Briefly describe your objectives..." required></textarea>
-                            </div>
+                            <textarea class="q-control" rows="5"
+                                name="message"
+                                placeholder="Describe your project..."></textarea>
                         </div>
+
                         <div class="col-12">
-                            <button type="submit" class="btn-submit-premium">
-                                Dispatch Message <i class="fas fa-chevron-right ms-2 small"></i>
+                            <button class="btn-submit-premium">
+                                Send Message →
                             </button>
                         </div>
+
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="py-5 text-center">
-    <div class="container">
-        <p class="small text-muted mb-0">
-            <i class="fas fa-lock text-primary me-2"></i> 
-            All submissions are encrypted. Project details are strictly confidential.
-        </p>
+        </div>
+
     </div>
 </div>
 
