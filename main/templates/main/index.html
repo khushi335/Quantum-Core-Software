@@ -1413,8 +1413,11 @@
     </div>
 </section>
 
+{% load static %}
+
 <section class="blog-section">
   <div class="container">
+
     <div class="section-heading">
       <span>Latest Insights</span>
       <h2>Business Growth & Technology Blog</h2>
@@ -1436,14 +1439,13 @@
           <span class="blog-category">AI Development</span>
 
           <h3>
-            <a href="/blog/future-of-ai-powered-web-development-2026">
+            <a href="{% url 'blog1' %}">
               The Future of AI-Powered Web Development in 2026
             </a>
           </h3>
 
           <p>
-            Explore how AI is reshaping web development, automation, and custom
-            business applications in 2026.
+            Explore how AI is reshaping web development, automation, and custom business applications in 2026.
           </p>
         </div>
       </article>
@@ -1458,14 +1460,13 @@
           <span class="blog-category">SEO Strategy</span>
 
           <h3>
-            <a href="/blog/why-every-small-business-needs-seo-optimized-website">
+            <a href="{% url 'blog2' %}">
               Why Every Small Business Needs an SEO-Optimized Website
             </a>
           </h3>
 
           <p>
-            Learn how SEO-optimized websites increase visibility, leads, and
-            conversions for small businesses.
+            Learn how SEO-optimized websites increase visibility, leads, and conversions for small businesses.
           </p>
         </div>
       </article>
@@ -1480,14 +1481,13 @@
           <span class="blog-category">SEO Growth</span>
 
           <h3>
-            <a href="/blog/how-technical-seo-can-double-your-website-traffic">
+            <a href="{% url 'blog3' %}">
               How Technical SEO Can Double Your Website Traffic
             </a>
           </h3>
 
           <p>
-            Improve rankings and organic traffic by fixing technical SEO issues
-            and optimizing site performance.
+            Improve rankings and organic traffic by fixing technical SEO issues and optimizing site performance.
           </p>
         </div>
       </article>
@@ -1502,14 +1502,13 @@
           <span class="blog-category">Software Development</span>
 
           <h3>
-            <a href="/blog/custom-software-vs-off-the-shelf-software">
+            <a href="{% url 'blog4' %}">
               Custom Software vs Off-the-Shelf Software: Which Is Better?
             </a>
           </h3>
 
           <p>
-            Compare cost, scalability, and long-term value of custom software vs
-            ready-made solutions.
+            Compare cost, scalability, and long-term value of custom software vs ready-made solutions.
           </p>
         </div>
       </article>
@@ -1524,14 +1523,13 @@
           <span class="blog-category">Web Development</span>
 
           <h3>
-            <a href="/blog/django-vs-wordpress-which-is-best-for-business">
+            <a href="{% url 'blog5' %}">
               Django vs WordPress: Which Platform Is Best for Growing Businesses?
             </a>
           </h3>
 
           <p>
-            Discover which platform is better for scalability, performance, and
-            enterprise-level business websites.
+            Discover which platform is better for scalability, performance, and enterprise-level business websites.
           </p>
         </div>
       </article>
@@ -1546,14 +1544,13 @@
           <span class="blog-category">Web Development</span>
 
           <h3>
-            <a href="/blog/django-vs-wordpress-which-platform-is-best-for-growing-businesses">
+            <a href="{% url 'blog6' %}">
               Django vs WordPress: Which Platform Is Best for Growing Businesses?
             </a>
           </h3>
 
           <p>
-            Compare Django development vs WordPress in performance, scalability,
-            security, and custom website development for modern businesses.
+            Compare Django development vs WordPress in performance, scalability, security, and custom website development for modern businesses.
           </p>
         </div>
       </article>
