@@ -2910,3 +2910,371 @@ Not Found: /favicon.ico
 Not Found: /favicon.ico
 Not Found: /favicon.ico
 Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /robots.txt
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /robots.txt
+Not Found: /testimonial/
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /ahhvac/wp-login.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /projects/
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /quantum/
+Not Found: /project/
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /favicon.ico
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /static/img/digital.jpg
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /static/img/webdev.jpg
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /conatct/
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /blog/custom-software-vs-saas-which-saves-more-money
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /wp-login.php
+Not Found: /wp-admin/install.php
+Not Found: /.well-known/traffic-advice
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-login.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /media/system/js/core.js
+Not Found: /wp-includes/js/jquery/jquery.js
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/http/request.py", line 203, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/http/request.py", line 203, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/http/request.py", line 203, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/hightech/virtualenv/quantumcoresoftware.com/quantum/3.10/lib/python3.10/site-packages/django/http/request.py", line 203, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mail.quantumcoresoftware.com'. You may need to add 'mail.quantumcoresoftware.com' to ALLOWED_HOSTS.
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /services/
+Not Found: /conatct/
+Not Found: /testimonial/
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /blog/10-seo-mistakes-costing-businesses-thousands
+Not Found: /wp-json/wp/v2/users
+Not Found: /xmlrpc.php
+Not Found: /ahhvac/wp-login.php
+Not Found: /wp-login.php
+Not Found: /ahhvac/wp-login.php/
+Not Found: /ahhvac/wp-login.php
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /quantum1/main/
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /static/img/about1.jpg
+Not Found: /favicon.ico
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /favicon.ico
+Not Found: /apple-touch-icon-120x120-precomposed.png
+Not Found: /apple-touch-icon-120x120.png
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /favicon.ico
+Not Found: /apple-touch-icon-120x120-precomposed.png
+Not Found: /apple-touch-icon-120x120.png
+Not Found: /apple-touch-icon-precomposed.png
+Not Found: /apple-touch-icon.png
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /conatct/
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /wp-includes/ID3/license.txt
+Not Found: /feed/
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /2020/wp-includes/wlwmanifest.xml
+Not Found: /2019/wp-includes/wlwmanifest.xml
+Not Found: /2021/wp-includes/wlwmanifest.xml
+Not Found: /shop/wp-includes/wlwmanifest.xml
+Not Found: /wp1/wp-includes/wlwmanifest.xml
+Not Found: /test/wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /cms/wp-includes/wlwmanifest.xml
+Not Found: /wp-login.php
+Not Found: /wp-admin/install.php
+Not Found: /projects/
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /blog/how-ai-is-transforming-small-businesses-2026
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /wp-login.php
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /conatct/
+Not Found: /robots.txt
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /wp-includes/ID3/license.txt
+Not Found: /feed/
+Not Found: /xmlrpc.php
+Not Found: /blog/wp-includes/wlwmanifest.xml
+Not Found: /web/wp-includes/wlwmanifest.xml
+Not Found: /wordpress/wp-includes/wlwmanifest.xml
+Not Found: /wp/wp-includes/wlwmanifest.xml
+Not Found: /2020/wp-includes/wlwmanifest.xml
+Not Found: /2019/wp-includes/wlwmanifest.xml
+Not Found: /2021/wp-includes/wlwmanifest.xml
+Not Found: /shop/wp-includes/wlwmanifest.xml
+Not Found: /wp1/wp-includes/wlwmanifest.xml
+Not Found: /test/wp-includes/wlwmanifest.xml
+Not Found: /site/wp-includes/wlwmanifest.xml
+Not Found: /cms/wp-includes/wlwmanifest.xml
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /ahhvac/wp-login.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-upload.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /static/images/seo-growth.jpg
+Not Found: /static/images/django-wordpress.jpg
+Not Found: /favicon.ico
+Not Found: /static/images/seo-growth.jpg
+Not Found: /static/images/django-wordpress.jpg
+Not Found: /favicon.ico
+Not Found: /wp-admin/install.php
+Not Found: /static/images/seo-growth.jpg
+Not Found: /static/images/django-wordpress.jpg
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /robots.txt
+Not Found: /static/images/ai-web-dev-2026.jpg
+Not Found: /static/images/technical-seo-traffic.jpg
+Not Found: /static/images/web-development-trends-2026.jpg
+Not Found: /static/images/custom-vs-offshore-software.jpg
+Not Found: /static/images/seo-optimized-website.jpg
+Not Found: /static/images/django-vs-wordpress.jpg
+Not Found: /favicon.ico
+Not Found: /static/images/technical-seo-traffic.jpg
+Not Found: /static/images/django-vs-wordpress.jpg
+Not Found: /static/images/django-vs-wordpress-deep-dive.jpg
+Not Found: /static/images/ai-web-dev-2026.jpg
+Not Found: /static/images/seo-optimized-website.jpg
+Not Found: /static/images/custom-vs-offshore-software.jpg
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /category/front-end/
+Not Found: /robots.txt
+Not Found: /static/images/django-vs-wordpress-deep-dive.jpg
+Not Found: /static/images/technical-seo-traffic.jpg
+Not Found: /favicon.ico
+Not Found: /static/images/django-vs-wordpress.jpg
+Not Found: /static/images/ai-web-dev-2026.jpg
+Not Found: /static/images/custom-vs-offshore-software.jpg
+Not Found: /static/images/seo-optimized-website.jpg
+Not Found: /static/images/seo-optimized-website.jpg
+Not Found: /static/images/custom-vs-offshore-software.jpg
+Not Found: /static/images/technical-seo-traffic.jpg
+Not Found: /static/images/django-vs-wordpress.jpg
+Not Found: /static/images/ai-web-dev-2026.jpg
+Not Found: /static/images/django-vs-wordpress-deep-dive.jpg
+Not Found: /favicon.ico
+Not Found: /blog/future-of-ai-powered-web-development-2026
+Not Found: /blog/future-of-ai-powered-web-development-2026
+Not Found: /blog/why-every-small-business-needs-seo-optimized-website
+Not Found: /blog/how-technical-seo-can-double-your-website-traffic
+Not Found: /favicon.ico
