@@ -48,3 +48,21 @@ def seo_optimization(request):
 
 def digital_marketing(request):
     return render(request, 'main/digital_marketing.html')
+
+def blog1(request):
+    return render(request, "main/future-of-ai-powered-web-development-2026.html")
+
+def blog2(request):
+    return render(request, "main/why-every-small-business-needs-seo-optimized-website.html")
+
+def blog3(request):
+    return render(request, "main/how-technical-seo-can-double-your-website-traffic.html")
+
+def blog4(request):
+    return render(request, "main/custom-software-vs-off-the-shelf-software.html")
+
+def blog5(request):
+    return render(request, "main/django-vs-wordpress-which-is-best-for-business.html")
+
+def blog6(request):
+    return render(request, "main/django-vs-wordpress-which-platform-is-best-for-growing-businesses.html")
