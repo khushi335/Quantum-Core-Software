@@ -1,63 +1,99 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-Why Every Small Business Needs an SEO-Optimized Website
-{% endblock %}
+{% block title %}Why Every Small Business Needs an SEO-Optimized Website{% endblock %}
 
 {% block content %}
 
-<section class="blog-detail">
-  <div class="container">
+<style>
+  :root {
+    --navy: #03045e;
+    --cyan: #00b4d8;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --bg-white: #ffffff;
+  }
 
-    <div class="blog-hero">
-      <span class="blog-category">SEO Strategy</span>
+  .blog-wrapper { padding: 80px 5%; background: var(--bg-white); }
 
+  /* Two-Column Grid: Main text (left) + Sidebar (right) */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Full-width Hero */
+  .hero-section { grid-column: 1 / -1; text-align: center; margin-bottom: 60px; }
+  .category-tag { color: var(--cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+  .hero-section h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--navy); margin: 20px 0; }
+  .hero-image { width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+  /* Content Styling */
+  .content-column { font-size: 1.2rem; line-height: 1.8; color: var(--text-dark); }
+  .content-column h2 { color: var(--navy); margin: 50px 0 20px; font-size: 1.8rem; border-left: 5px solid var(--cyan); padding-left: 15px; }
+
+  /* Sidebar Card */
+  .sidebar { position: sticky; top: 100px; height: fit-content; }
+  .sidebar-box { background: #f8f9fa; padding: 40px; border-radius: 20px; border-top: 5px solid var(--navy); }
+
+  /* Full-width CTA Section */
+  .footer-cta { grid-column: 1 / -1; background: var(--navy); color: white; padding: 80px 40px; border-radius: 30px; text-align: center; margin-top: 60px; }
+  .btn-primary { 
+    display: inline-block; background: var(--cyan); color: white; padding: 18px 40px; 
+    border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; margin-top: 25px;
+  }
+  .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,180,216,0.3); }
+
+  /* Responsive Stacking */
+  @media (max-width: 1024px) {
+    .blog-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { display: none; }
+  }
+</style>
+
+<div class="blog-wrapper">
+  <div class="blog-grid">
+    
+    <header class="hero-section">
+      <span class="category-tag">SEO Strategy</span>
       <h1>Why Every Small Business Needs an SEO-Optimized Website</h1>
+      <img src="{% static 'images/seo-optimized-website.jpg' %}" alt="SEO optimized website" class="hero-image">
+    </header>
 
-      <p class="blog-meta">
-        SEO Website Development • Small Business Growth • Conversion Optimization
-      </p>
-
-      <img src="{% static 'images/seo-optimized-website.jpg' %}" alt="SEO optimized website for small business growth" />
-    </div>
-
-    <div class="blog-content">
-
-      <p>
-        An SEO-optimized website is no longer optional for small businesses.
-        It is the foundation of online visibility, lead generation, and digital growth.
-      </p>
-
+    <article class="content-column">
+      <p>An SEO-optimized website is no longer optional for small businesses. It is the foundation of online visibility, lead generation, and long-term digital growth.</p>
+      
       <h2>1. Higher Google Rankings</h2>
-      <p>
-        SEO helps your business appear in search results when customers are actively searching.
-      </p>
-
+      <p>SEO helps your business appear exactly when customers are searching for your services, placing you directly in front of your target audience.</p>
+      
       <h2>2. More Organic Traffic</h2>
-      <p>
-        Optimized websites attract consistent, free traffic from search engines.
-      </p>
-
+      <p>Unlike paid advertising that stops the moment you stop paying, optimized websites attract consistent, free traffic from search engines 24/7.</p>
+      
       <h2>3. Better Conversion Rates</h2>
-      <p>
-        SEO improves user experience, making visitors more likely to become customers.
-      </p>
-
+      <p>SEO is about more than just rankings; it focuses on user experience. A fast, mobile-responsive, and well-structured site makes visitors significantly more likely to become paying customers.</p>
+      
       <h2>4. Long-Term Business Growth</h2>
-      <p>
-        Unlike ads, SEO continues delivering results over time.
-      </p>
+      <p>Investing in SEO is building an asset. Over time, your authority grows, compounding your reach and reducing your dependence on expensive lead-buying platforms.</p>
+    </article>
 
-    </div>
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4 style="color:var(--navy);">Ready for Growth?</h4>
+        <p style="color:var(--text-muted); font-size: 0.95rem;">Don't let your competitors capture your traffic. Let us build an SEO foundation that ranks, converts, and scales.</p>
+        <a href="{% url 'contact' %}" style="color:var(--cyan); font-weight:bold; text-decoration:none;">Start Your SEO Project &rarr;</a>
+      </div>
+    </aside>
 
-    <div class="blog-cta">
+    <section class="footer-cta">
       <h3>Need an SEO-Optimized Website?</h3>
       <p>We build high-performance SEO websites that rank and convert.</p>
       <a href="{% url 'contact' %}" class="btn-primary">Get in Touch</a>
-    </div>
+    </section>
 
   </div>
-</section>
+</div>
 
 {% endblock %}

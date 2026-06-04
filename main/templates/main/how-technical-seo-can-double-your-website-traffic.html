@@ -1,85 +1,106 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-How Technical SEO Can Double Your Website Traffic
-{% endblock %}
+{% block title %}How Technical SEO Can Double Your Website Traffic{% endblock %}
 
 {% block content %}
 
-<section class="blog-detail">
-  <div class="container">
+<style>
+  :root {
+    --navy: #03045e;
+    --cyan: #00b4d8;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --bg-white: #ffffff;
+  }
 
-    <!-- Hero -->
-    <div class="blog-hero">
+  /* Full-width wrapper */
+  .blog-wrapper { padding: 80px 5%; background: var(--bg-white); }
 
-      <span class="blog-category">SEO Growth</span>
+  /* Two-Column Grid: Text (left) + Sidebar (right) */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-      <h1>
-        How Technical SEO Can Double Your Website Traffic
-      </h1>
+  /* Full-width Hero */
+  .hero-section { grid-column: 1 / -1; text-align: center; margin-bottom: 60px; }
+  .category-tag { color: var(--cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+  .hero-section h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--navy); margin: 20px 0; }
+  .hero-image { width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-      <p class="blog-meta">
-        Technical SEO • Website Performance • Organic Growth
-      </p>
+  /* Main Content Styles */
+  .content-column { font-size: 1.2rem; line-height: 1.8; color: var(--text-dark); }
+  .content-column h2 { color: var(--navy); margin: 50px 0 20px; font-size: 1.8rem; border-left: 5px solid var(--cyan); padding-left: 15px; }
 
-      <img src="{% static 'images/technical-seo-traffic.jpg' %}" alt="Technical SEO improving website traffic" />
+  /* Sticky Sidebar */
+  .sidebar { position: sticky; top: 100px; height: fit-content; }
+  .sidebar-box { background: #f8f9fa; padding: 40px; border-radius: 20px; border-top: 5px solid var(--navy); }
 
-    </div>
+  /* Full-width CTA */
+  .footer-cta { grid-column: 1 / -1; background: var(--navy); color: white; padding: 80px 40px; border-radius: 30px; text-align: center; margin-top: 60px; }
+  .btn-primary { 
+    display: inline-block; background: var(--cyan); color: white; padding: 18px 40px; 
+    border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; margin-top: 25px;
+  }
+  .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,180,216,0.3); }
 
-    <!-- Content -->
-    <div class="blog-content">
+  /* Responsive Stacking */
+  @media (max-width: 1024px) {
+    .blog-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { display: none; }
+  }
+</style>
 
-      <p>
-        Technical SEO is one of the most powerful yet overlooked strategies for increasing organic traffic.
-        By optimizing your website’s structure, speed, and indexing, you can significantly improve search rankings.
-      </p>
+<div class="blog-wrapper">
+  <div class="blog-grid">
+    
+    <header class="hero-section">
+      <span class="category-tag">SEO Growth</span>
+      <h1>How Technical SEO Can Double Your Website Traffic</h1>
+      <img src="{% static 'images/technical-seo-traffic.jpg' %}" alt="Technical SEO" class="hero-image">
+    </header>
 
+    <article class="content-column">
+      <p>Technical SEO is one of the most powerful yet overlooked strategies for increasing organic traffic. By optimizing your website’s structure, speed, and indexing, you can significantly improve search rankings and user retention.</p>
+      
       <h2>1. Improve Website Speed</h2>
-      <p>
-        Google prioritizes fast-loading websites. Compress images, use caching, and optimize code to reduce load time.
-      </p>
-
+      <p>Google prioritizes fast-loading websites. Compress images, use caching, and optimize code to reduce load time, as milliseconds can determine your ranking.</p>
+      
       <h2>2. Fix Crawl Errors</h2>
-      <p>
-        Broken links, 404 errors, and improper redirects can block search engines from indexing your site properly.
-      </p>
-
+      <p>Broken links, 404 errors, and improper redirects act as roadblocks for search engines. Regular audits ensure Google can crawl your pages without friction.</p>
+      
       <h2>3. Optimize Site Structure</h2>
-      <p>
-        A clean URL structure and proper internal linking help search engines understand your content better.
-      </p>
-
+      <p>A clean URL hierarchy and intelligent internal linking help search engines understand the relationship between your pages, distributing authority throughout your domain.</p>
+      
       <h2>4. Mobile Optimization</h2>
-      <p>
-        Most users come from mobile devices. A responsive design improves both rankings and user experience.
-      </p>
-
-      <h2>5. Improve Indexing & Sitemap</h2>
-      <p>
-        Submit an updated XML sitemap and ensure your pages are properly indexed in Google Search Console.
-      </p>
-
+      <p>With mobile-first indexing, a responsive design is no longer optional—it is a critical ranking factor that impacts both SEO and user experience.</p>
+      
+      <h2>5. Improve Indexing & Sitemaps</h2>
+      <p>Submitting an updated XML sitemap ensures Google discovers your content quickly, while proper directives prevent index bloat on irrelevant pages.</p>
+      
       <h2>6. Use Structured Data</h2>
-      <p>
-        Schema markup helps Google understand your content and can improve visibility in search results.
-      </p>
+      <p>Schema markup (Structured Data) helps Google interpret your content, potentially unlocking rich snippets that increase your click-through rate.</p>
+    </article>
 
-    </div>
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4 style="color:var(--navy);">Need an SEO Audit?</h4>
+        <p style="color:var(--text-muted); font-size: 0.95rem;">Is your technical foundation holding your rankings back? Our team performs deep-dive audits to uncover hidden growth opportunities.</p>
+        <a href="{% url 'contact' %}" style="color:var(--cyan); font-weight:bold; text-decoration:none;">Request an Audit &rarr;</a>
+      </div>
+    </aside>
 
-    <!-- CTA -->
-    <div class="blog-cta">
+    <section class="footer-cta">
       <h3>Want Higher Google Rankings?</h3>
-      <p>
-        We build SEO-optimized websites that rank faster and generate consistent organic traffic.
-      </p>
-
-      <a href="{% url 'contact' %}" class="btn-primary">
-        Get a Free Consultation
-      </a>
-    </div>
+      <p>We build SEO-optimized websites that rank faster and generate consistent organic traffic.</p>
+      <a href="{% url 'contact' %}" class="btn-primary">Get a Free Consultation</a>
+    </section>
 
   </div>
-</section>
+</div>
 
 {% endblock %}

@@ -1,84 +1,103 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-The Future of AI-Powered Web Development in 2026
-{% endblock %}
+{% block title %}The Future of AI-Powered Web Development in 2026{% endblock %}
 
 {% block content %}
 
-<section class="blog-detail">
-  <div class="container">
+<style>
+  :root {
+    --navy: #03045e;
+    --cyan: #00b4d8;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --bg-white: #ffffff;
+  }
 
-    <!-- Hero Section -->
-    <div class="blog-hero">
-      <span class="blog-category">AI Development</span>
+  /* Full-width wrapper */
+  .blog-wrapper { padding: 80px 5%; background: var(--bg-white); }
 
-      <h1>
-        The Future of AI-Powered Web Development in 2026
-      </h1>
+  /* Two-Column Grid: Text (left) + Sidebar (right) */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-      <p class="blog-meta">
-        Published in 2026 • AI, Web Development, Automation
-      </p>
+  /* Full-width Hero */
+  .hero-section { grid-column: 1 / -1; text-align: center; margin-bottom: 60px; }
+  .category-tag { color: var(--cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+  .hero-section h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--navy); margin: 20px 0; }
+  .hero-image { width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-      <img src="{% static 'images/ai-web-dev-2026.jpg' %}" alt="AI-powered web development trends 2026" />
-    </div>
+  /* Main Content Styles */
+  .content-column { font-size: 1.2rem; line-height: 1.8; color: var(--text-dark); }
+  .content-column h2 { color: var(--navy); margin: 50px 0 20px; font-size: 1.8rem; border-left: 5px solid var(--cyan); padding-left: 15px; }
 
-    <!-- Content -->
-    <div class="blog-content">
+  /* Sticky Sidebar */
+  .sidebar { position: sticky; top: 100px; height: fit-content; }
+  .sidebar-box { background: #f8f9fa; padding: 40px; border-radius: 20px; border-top: 5px solid var(--navy); }
 
-      <p>
-        Artificial Intelligence is transforming the way modern websites and web applications are built.
-        In 2026, AI-powered web development is no longer optional—it is becoming the standard for scalable,
-        intelligent, and high-performing digital products.
-      </p>
+  /* Full-width CTA */
+  .footer-cta { grid-column: 1 / -1; background: var(--navy); color: white; padding: 80px 40px; border-radius: 30px; text-align: center; margin-top: 60px; }
+  .btn-primary { 
+    display: inline-block; background: var(--cyan); color: white; padding: 18px 40px; 
+    border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; margin-top: 25px;
+  }
+  .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,180,216,0.3); }
 
+  /* Responsive Stacking */
+  @media (max-width: 1024px) {
+    .blog-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { display: none; }
+  }
+</style>
+
+<div class="blog-wrapper">
+  <div class="blog-grid">
+    
+    <header class="hero-section">
+      <span class="category-tag">AI Development</span>
+      <h1>The Future of AI-Powered Web Development in 2026</h1>
+      <img src="{% static 'images/ai-web-dev-2026.jpg' %}" alt="AI-powered web development" class="hero-image">
+    </header>
+
+    <article class="content-column">
+      <p>Artificial Intelligence is transforming the way modern websites and web applications are built. In 2026, AI-powered web development is no longer optional—it is becoming the standard for scalable, intelligent, and high-performing digital products.</p>
+      
       <h2>1. AI in Modern Web Development</h2>
-      <p>
-        AI is now deeply integrated into coding, design, testing, and deployment.
-        Developers use AI tools to generate code faster, detect bugs, and optimize performance automatically.
-      </p>
-
+      <p>AI is now deeply integrated into coding, design, testing, and deployment. Developers use AI tools to generate code faster, detect bugs, and optimize performance automatically.</p>
+      
       <h2>2. Smarter User Experiences</h2>
-      <p>
-        Websites are becoming more personalized. AI analyzes user behavior in real time
-        to deliver dynamic content, recommendations, and adaptive interfaces.
-      </p>
-
+      <p>Websites are becoming more personalized. AI analyzes user behavior in real time to deliver dynamic content, recommendations, and adaptive interfaces.</p>
+      
       <h2>3. Automation in Development Workflow</h2>
-      <p>
-        From CI/CD pipelines to automated testing, AI reduces manual effort and speeds up
-        the development lifecycle significantly.
-      </p>
-
+      <p>From CI/CD pipelines to automated testing, AI reduces manual effort and speeds up the development lifecycle significantly.</p>
+      
       <h2>4. AI-Powered Business Applications</h2>
-      <p>
-        Businesses are adopting custom AI applications for customer support, analytics,
-        sales automation, and decision-making systems.
-      </p>
+      <p>Businesses are adopting custom AI applications for customer support, analytics, sales automation, and decision-making systems.</p>
 
       <h2>5. Future Outlook</h2>
-      <p>
-        In the coming years, AI will not replace developers—but developers using AI
-        will replace those who do not adapt.
-      </p>
+      <p>In the coming years, AI will not replace developers—but developers using AI will replace those who do not adapt.</p>
+    </article>
 
-    </div>
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4 style="color:var(--navy);">Leverage AI Today</h4>
+        <p style="color:var(--text-muted); font-size: 0.95rem;">Is your business ready for the AI revolution? We build custom AI-integrated web applications tailored to your operational needs.</p>
+        <a href="{% url 'contact' %}" style="color:var(--cyan); font-weight:bold; text-decoration:none;">Book an AI Audit &rarr;</a>
+      </div>
+    </aside>
 
-    <!-- CTA Section -->
-    <div class="blog-cta">
+    <section class="footer-cta">
       <h3>Need AI-Powered Web Development?</h3>
-      <p>
-        We build custom AI solutions, scalable web applications, and modern business websites.
-      </p>
-
-      <a href="{% url 'contact' %}" class="btn-primary">
-        Get in Touch
-      </a>
-    </div>
+      <p>We build custom AI solutions, scalable web applications, and modern business websites.</p>
+      <a href="{% url 'contact' %}" class="btn-primary">Get in Touch</a>
+    </section>
 
   </div>
-</section>
+</div>
 
 {% endblock %}

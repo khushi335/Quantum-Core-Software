@@ -1,90 +1,103 @@
-{% extends "base.html" %}
+\{% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-Django vs WordPress: Which Platform Is Best for Growing Businesses?
-{% endblock %}
+{% block title %}Django vs WordPress: Which Platform Is Best for Growing Businesses?{% endblock %}
 
 {% block content %}
 
-<section class="blog-detail">
-  <div class="container">
+<style>
+  /* Quantum Core Aesthetic Variables */
+  :root {
+    --navy: #03045e;
+    --cyan: #00b4d8;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --bg-white: #ffffff;
+  }
 
-    <!-- Hero Section -->
-    <div class="blog-hero">
+  .blog-wrapper { padding: 80px 5%; background: var(--bg-white); }
 
-      <span class="blog-category">Web Development</span>
+  /* 2-Column Grid Layout: Text on left, Sidebar on right */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-      <h1>
-        Django vs WordPress: Which Platform Is Best for Growing Businesses?
-      </h1>
+  /* Hero Section spans full width */
+  .hero-section { grid-column: 1 / -1; text-align: center; margin-bottom: 60px; }
+  .category-tag { color: var(--cyan); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+  .hero-section h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--navy); margin: 20px 0; }
+  .hero-image { width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-      <p class="blog-meta">
-        Django Development • WordPress • Python Web Development • Scalable Web Apps
-      </p>
+  /* Main Content Column */
+  .content-column { font-size: 1.2rem; line-height: 1.8; color: var(--text-dark); }
+  .content-column h2 { color: var(--navy); margin: 50px 0 20px; font-size: 1.8rem; border-left: 5px solid var(--cyan); padding-left: 15px; }
 
-      <img src="{% static 'images/django-vs-wordpress-deep-dive.jpg' %}" alt="Django vs WordPress development comparison Python web development" />
+  /* Sidebar Card - Fills the side space professionally */
+  .sidebar { position: sticky; top: 100px; }
+  .sidebar-box { background: #f8f9fa; padding: 40px; border-radius: 20px; border-top: 5px solid var(--navy); }
 
-    </div>
+  /* Bottom CTA - Full Width */
+  .footer-cta { grid-column: 1 / -1; background: var(--navy); color: white; padding: 80px 40px; border-radius: 30px; text-align: center; margin-top: 60px; }
+  .btn-primary { 
+    display: inline-block; background: var(--cyan); color: white; padding: 18px 40px; 
+    border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; margin-top: 25px;
+  }
+  .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,180,216,0.3); }
 
-    <!-- Content -->
-    <div class="blog-content">
+  /* Tablet and Mobile Optimization */
+  @media (max-width: 1024px) {
+    .blog-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { display: none; }
+  }
+</style>
 
-      <p>
-        When building a modern business website or web application, choosing the right technology stack is critical.
-        Django and WordPress are two of the most popular platforms—but they serve very different purposes.
-      </p>
+<div class="blog-wrapper">
+  <div class="blog-grid">
+    
+    <header class="hero-section">
+      <span class="category-tag">Web Development</span>
+      <h1>Django vs WordPress: Which Platform Is Best for Growing Businesses?</h1>
+      <img src="{% static 'images/django-vs-wordpress-deep-dive.jpg' %}" alt="Django vs WordPress" class="hero-image">
+    </header>
 
+    <article class="content-column">
+      <p>When building a modern business website or web application, choosing the right technology stack is critical. Django and WordPress are two of the most popular platforms—but they serve very different purposes.</p>
+      
       <h2>1. Django for Custom Web Development</h2>
-      <p>
-        Django is a powerful Python-based framework designed for building complex, secure, and scalable web applications.
-        It is ideal for businesses that need custom functionality beyond templates and plugins.
-      </p>
-
+      <p>Django is a powerful Python-based framework designed for building complex, secure, and scalable web applications. It is ideal for businesses that need custom functionality beyond templates and plugins.</p>
+      
       <h2>2. WordPress for Quick Website Setup</h2>
-      <p>
-        WordPress is a CMS that allows fast website creation using themes and plugins.
-        It is widely used for blogs, small business sites, and content-driven websites.
-      </p>
-
+      <p>WordPress is a CMS that allows fast website creation using themes and plugins. It is widely used for blogs, small business sites, and content-driven websites.</p>
+      
       <h2>3. Performance Comparison</h2>
-      <p>
-        Django delivers high performance for large-scale systems, while WordPress can slow down with too many plugins or heavy traffic.
-      </p>
-
+      <p>Django delivers high performance for large-scale systems, while WordPress can slow down with too many plugins or heavy traffic.</p>
+      
       <h2>4. Security Differences</h2>
-      <p>
-        Django has built-in security features like protection against SQL injection and XSS attacks.
-        WordPress relies heavily on plugins and manual hardening for security.
-      </p>
-
+      <p>Django has built-in security features like protection against SQL injection and XSS attacks. WordPress relies heavily on plugins and manual hardening for security.</p>
+      
       <h2>5. Scalability & Growth</h2>
-      <p>
-        Django is built for scaling enterprise applications, APIs, and SaaS platforms.
-        WordPress is better suited for smaller websites with limited complexity.
-      </p>
+      <p>Django is built for scaling enterprise applications, APIs, and SaaS platforms. WordPress is better suited for smaller websites with limited complexity.</p>
+    </article>
 
-      <h2>6. Final Recommendation</h2>
-      <p>
-        If your business needs long-term scalability, custom features, and high performance, Django is the better choice.
-        If you need a quick and simple website, WordPress is more convenient.
-      </p>
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4 style="color:var(--navy);">Need Professional Advice?</h4>
+        <p style="color:var(--text-muted); font-size: 0.95rem;">Not sure which framework aligns with your vision? Our engineering team helps you analyze your specific business requirements.</p>
+        <a href="{% url 'contact' %}" style="color:var(--cyan); font-weight:bold; text-decoration:none;">Schedule a Consultation &rarr;</a>
+      </div>
+    </aside>
 
-    </div>
-
-    <!-- CTA Section -->
-    <div class="blog-cta">
+    <section class="footer-cta">
       <h3>Build a Scalable Website for Your Business</h3>
-      <p>
-        We specialize in Django development and WordPress solutions tailored for growing businesses.
-      </p>
-
-      <a href="{% url 'contact' %}" class="btn-primary">
-        Get a Free Consultation
-      </a>
-    </div>
+      <p>We specialize in Django development and WordPress solutions tailored for growing businesses.</p>
+      <a href="{% url 'contact' %}" class="btn-primary">Get a Free Consultation</a>
+    </section>
 
   </div>
-</section>
+</div>
 
 {% endblock %}
