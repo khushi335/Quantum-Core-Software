@@ -63,6 +63,6 @@ def blog4(request):
 
 def blog5(request):
     return render(request, "main/django-vs-wordpress-which-is-best-for-business.html")
-
-def blog6(request):
-    return render(request, "main/django-vs-wordpress-which-platform-is-best-for-growing-businesses.html")
+    
+def cloud_migration(request):
+    return render(request, 'main/cloud_migration.html')
