@@ -15,5 +15,5 @@ urlpatterns = [
     path("blog/how-technical-seo-can-double-your-website-traffic/",blog3,name="blog3"),
     path("blog/custom-software-vs-off-the-shelf-software/",blog4,name="blog4"),
     path("blog/django-vs-wordpress-which-is-best-for-business/",blog5,name="blog5"),
-    path("blog/django-vs-wordpress-which-platform-is-best-for-growing-businesses/",blog6,name="blog6"),
+    path('blog/cloud-migration/', cloud_migration, name='blog6'),
 ]
